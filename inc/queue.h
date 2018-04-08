@@ -1,5 +1,6 @@
 #include <stdbool.h>
 #include <stdlib.h>
+
 #ifndef SNAKE_QUEUE_H
 #define SNAKE_QUEUE_H
 
