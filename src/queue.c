@@ -1,4 +1,3 @@
-#include <libzvbi.h>
 #include "../inc/queue.h"
 
 bool dequeue(struct queuePointers *queue, int *data)
