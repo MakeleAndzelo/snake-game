@@ -25,7 +25,7 @@ void insertAfter(struct listNode *, struct listNode *);
 
 void insertBack(struct listNode *, struct listNode *);
 
-struct list *insertNode(struct list *, int);
+bool insertNode(struct list **, int);
 
 struct list *deleteFront(struct list *);
 
@@ -33,7 +33,7 @@ struct listNode *findPrevNode(struct listNode *, int );
 
 void deleteAfter(struct listNode *);
 
-struct list *deleteNode(struct list *, int);
+bool deleteNode(struct list **, int);
 
 void printList(struct list *);
 

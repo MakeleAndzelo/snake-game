@@ -48,10 +48,10 @@ void insertBack(struct listNode *back, struct listNode *newNode)
     back ->next = newNode;
 }
 
-struct list *insertNode(struct list *list, int data)
+bool insertNode(struct list **list, int data)
 {
     if (NULL == list) {
-        return NULL;
+        return false;
     }
 
     struct listNode *newNode = (struct listNode *) malloc(sizeof(struct listNode));
@@ -60,11 +60,11 @@ struct list *insertNode(struct list *list, int data)
         newNode->data = data;
         newNode->next = NULL;
 
-        if (list->front->data <= data) {
-            list->size += 1;
-            return insertFront(list, newNode);
+        if ((*list)->front->data <= data) {
+            (*list)->size += 1;
+            *list = insertFront(*list, newNode);
         } else {
-            struct listNode *node = findSpot(list->front, data);
+            struct listNode *node = findSpot((*list)->front, data);
 
             if (NULL != node->next) {
                 insertAfter(node, newNode);
@@ -74,8 +74,8 @@ struct list *insertNode(struct list *list, int data)
         }
     }
 
-    list->size += 1;
-    return list;
+    (*list)->size += 1;
+    return true;
 }
 
 struct list *deleteFront(struct list *list)
@@ -100,29 +100,30 @@ struct listNode *findPrevNode(struct listNode *front, int data)
 
 void deleteAfter(struct listNode *node)
 {
-    struct listNode *next = node->next;
+    struct listNode *next = NULL != node ? node->next : NULL;
     if (NULL != next) {
         node->next = next->next;
         free(next);
     }
 }
 
-struct list *deleteNode(struct list *list, int data)
+bool deleteNode(struct list **list, int data)
 {
     if (NULL == list) {
         return NULL;
     }
 
-    if (list->front->data == data) {
-        list->size -= 1;
-        return deleteFront(list);
+    if ((*list)->front->data == data) {
+        (*list)->size -= 1;
+        *list = deleteFront(*list);
     }
 
-    struct listNode *prev = findPrevNode(list->front, data);
+    struct listNode *prev = findPrevNode((*list)->front, data);
     deleteAfter(prev);
 
-    list->size -= 1;
-    return list;
+    (*list)->size -= 1;
+
+    return true;
 }
 
 void printList(struct list *list)
