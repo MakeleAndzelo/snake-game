@@ -9,12 +9,17 @@ struct queueNode {
     struct queueNode *next;
 };
 
-struct queuePointers {
+struct queue {
     struct queueNode *head, *tail;
+    unsigned int size;
 };
 
-bool enqueue(struct queuePointers *, int);
+bool push(struct queue *, int);
 
-bool dequeue(struct queuePointers *, int *);
+bool pop(struct queue *, int *);
+
+int getSize(struct queue *);
+
+bool isEmpty(struct queue);
 
 #endif //SNAKE_QUEUE_H

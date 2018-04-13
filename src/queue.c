@@ -1,6 +1,7 @@
 #include "../inc/queue.h"
 
-bool dequeue(struct queuePointers *queue, int *data)
+
+bool pop(struct queue *queue, int *data)
 {
     if (NULL == queue->head) {
         return false;
@@ -14,10 +15,11 @@ bool dequeue(struct queuePointers *queue, int *data)
         queue->tail = NULL;
     }
 
+    queue->size -= 1;
     return true;
 }
 
-bool enqueue(struct queuePointers *queue, int data)
+bool push(struct queue *queue, int data)
 {
     struct queueNode *newNode = (struct queueNode *) malloc(sizeof(struct queueNode));
 
@@ -35,5 +37,17 @@ bool enqueue(struct queuePointers *queue, int data)
         queue->tail = newNode;
     }
 
+    queue->size += 1;
+
     return true;
+}
+
+int getSize(struct queue *queue)
+{
+    return queue->size;
+}
+
+bool isEmpty(struct queue queue)
+{
+    return queue.size == 0;
 }
