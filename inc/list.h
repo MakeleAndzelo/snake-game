@@ -39,4 +39,8 @@ void printList(struct list *);
 
 void removeList(struct list **);
 
+bool isListEmpty(struct list *);
+
+int getListSize(struct list *);
+
 #endif

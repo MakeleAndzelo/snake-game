@@ -143,3 +143,13 @@ void removeList(struct list **list)
         (*list)->front = next;
     }
 }
+
+bool isListEmpty(struct list *list)
+{
+    return list->size == 0;
+}
+
+int getListSize(struct list *list)
+{
+    return list->size;
+}
