@@ -1,74 +1,101 @@
 #include "../inc/Snake.h"
+#include "../inc/Game.h"
 
 struct Snake createSnake()
 {
     struct SnakeQueue *snakeQueue = (struct SnakeQueue *) malloc(sizeof(struct SnakeQueue));
 
-    pushFront(snakeQueue, 1, 7);
-    pushFront(snakeQueue, 1, 6);
-    pushFront(snakeQueue, 1, 5);
-    pushFront(snakeQueue, 1, 4);
-    pushFront(snakeQueue, 1, 3);
-    pushFront(snakeQueue, 1, 2);
+    pushFront(snakeQueue, 0, 1);
+    pushFront(snakeQueue, 0, 0);
 
     struct Snake snake = {*snakeQueue};
 
     return snake;
 }
 
-void moveUp(struct Snake *snake)
+bool moveUp(struct Snake *snake)
 {
+    int newY = snake->snakeQueue.head->y - 1, newX = snake->snakeQueue.head->x;
+
+    if (newY < 0) {
+        return false;
+    }
+
     popBack(&snake->snakeQueue);
-    pushBack(&snake->snakeQueue, snake->snakeQueue.head->y - 1 , snake->snakeQueue.head->x);
+    pushBack(&snake->snakeQueue, newY, newX);
+
+    return true;
 }
 
-void moveDown(struct Snake *snake)
+bool moveDown(struct Snake *snake)
 {
+    int newY = snake->snakeQueue.head->y + 1, newX = snake->snakeQueue.head->x;
+
+    if (newY > yMax) {
+        return false;
+    }
+
     popBack(&snake->snakeQueue);
-    pushBack(&snake->snakeQueue, snake->snakeQueue.head->y + 1 , snake->snakeQueue.head->x);
+    pushBack(&snake->snakeQueue, newY, newX);
+
+    return true;
 }
 
-void moveLeft(struct Snake *snake)
+bool moveLeft(struct Snake *snake)
 {
+    int newY = snake->snakeQueue.head->y, newX = snake->snakeQueue.head->x - 1;
+
+    if (newX < 0) {
+        return false;
+    }
+
     popBack(&snake->snakeQueue);
-    pushBack(&snake->snakeQueue, snake->snakeQueue.head->y , snake->snakeQueue.head->x - 1);
+    pushBack(&snake->snakeQueue, newY, newX);
+
+    return true;
 }
 
-void moveRight(struct Snake *snake)
+bool moveRight(struct Snake *snake)
 {
+    int newY = snake->snakeQueue.head->y, newX = snake->snakeQueue.head->x + 1;
+
+    if (newX > xMax) {
+        return false;
+    }
+
     popBack(&snake->snakeQueue);
-    pushBack(&snake->snakeQueue, snake->snakeQueue.head->y , snake->snakeQueue.head->x + 1);
+    pushBack(&snake->snakeQueue, newY, newX);
+
+    return true;
 }
 
-int getMove(struct Snake *snake)
+enum Status moveSnake(struct Snake *snake, enum Direction direction)
 {
-    int choice = getch();
-
-    switch (choice) {
-        case KEY_UP:
-            moveUp(snake);
+    switch (direction) {
+        case UP:
+            if (!moveUp(snake)) return FAILURE;
             break;
-        case KEY_DOWN:
-            moveDown(snake);
+        case DOWN:
+            if (!moveDown(snake)) return FAILURE;
             break;
-        case KEY_RIGHT:
-            moveRight(snake);
+        case RIGHT:
+            if (!moveRight(snake)) return FAILURE;
             break;
-        case KEY_LEFT:
-            moveLeft(snake);
+        case LEFT:
+            if (!moveLeft(snake)) return FAILURE;
             break;
         default:
             break;
     }
 
-    return choice;
+    return SUCCESS;
 }
 
 void display(struct Snake snake)
 {
     struct SnakeQueueNode *head = snake.snakeQueue.head;
     while (NULL != head) {
-        mvaddch(head->y, head->x, '#');
+        mvaddch(head->y, head->x, 'o');
         head = head->next;
     }
 }

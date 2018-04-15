@@ -7,26 +7,16 @@
 
 int main()
 {
-    initscr();
-    cbreak();
-    noecho();
-    curs_set(0);
-
-    int yMax, xMax;
-    getmaxyx(stdscr, yMax, xMax);
-
-    keypad(stdscr, true);
-    refresh();
-
+    setup();
     struct Snake snake = createSnake();
 
     do {
         clear();
         display(snake);
-        refresh();
-    } while(getMove(&snake) != 'x');
+        status = moveSnake(&snake, dir);
+        if(status == FAILURE) break;
+    } while (dir = getUserInput(dir));
 
-    getch();
     endwin();
 
     return 0;
