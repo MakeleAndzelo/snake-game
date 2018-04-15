@@ -4,6 +4,8 @@
 #include <ncurses.h>
 #include "SnakeQueue.h"
 #include "Game.h"
+#include "../inc/Game.h"
+#include "../inc/FruitsList.h"
 
 struct Snake {
     struct SnakeQueue snakeQueue;
@@ -15,6 +17,7 @@ bool moveDown(struct Snake *);
 bool moveRight(struct Snake *);
 bool moveLeft(struct Snake *);
 enum Status moveSnake(struct Snake *, enum Direction);
+void eatFruit(struct Snake *, int, int);
 void display(struct Snake);
 
 #endif //SNAKE_SNAKE_H

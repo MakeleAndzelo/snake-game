@@ -88,6 +88,30 @@ bool popBack(struct SnakeQueue *queue)
     return true;
 }
 
+bool searchQueue(struct SnakeQueue queue, int y, int x)
+{
+    while (NULL != queue.head) {
+        if (queue.head->y == y && queue.head->x == x) {
+            return true;
+        }
+
+        queue.head = queue.head->next;
+    }
+
+    return false;
+}
+
+void removeQueue(struct SnakeQueue **queue)
+{
+    struct SnakeQueueNode *next = NULL;
+    while (NULL != (*queue)->head) {
+        next = (*queue)->head->next;
+        free((*queue)->head);
+        (*queue)->head = next;
+    }
+
+}
+
 int getSize(struct SnakeQueue *queue)
 {
     return queue->size;

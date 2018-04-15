@@ -2,6 +2,7 @@
 
 void setup()
 {
+    srand(time(0));
     initscr();
     cbreak();
     noecho();
@@ -10,6 +11,7 @@ void setup()
     keypad(stdscr, true);
     timeout(100);
 
+    fruits = createList();
     dir = RIGHT;
     status = SUCCESS;
 }
@@ -29,4 +31,17 @@ enum Direction getUserInput(enum Direction previousDirection)
         default:
             return previousDirection;
     }
+}
+
+bool areCollisions(struct Snake *snake, int y, int x)
+{
+    if (searchList(*fruits, y, x)) {
+        eatFruit(snake, y, x);
+    }
+
+    if (searchQueue(snake->snakeQueue, y, x)) {
+        return false;
+    }
+
+    return true;
 }

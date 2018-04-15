@@ -22,6 +22,10 @@ bool popFront(struct SnakeQueue *);
 
 bool popBack(struct SnakeQueue *);
 
+bool searchQueue(struct SnakeQueue, int, int);
+
+void removeQueue(struct SnakeQueue **);
+
 int getSize(struct SnakeQueue *);
 
 bool isEmpty(struct SnakeQueue);

@@ -2,12 +2,20 @@
 #define SNAKE_GAME_H
 
 #include <ncurses.h>
+#include "Snake.h"
+#include <time.h>
+#include <stdlib.h>
+#include "../inc/FruitsList.h"
+
 
 enum Direction {UP = 1, DOWN, RIGHT, LEFT} dir;
 enum Status {FAILURE, SUCCESS} status;
+struct FruitsList *fruits;
 int yMax, xMax;
+
 
 void setup();
 enum Direction getUserInput(enum Direction);
+bool areCollisions(struct Snake *, int, int);
 
 #endif //SNAKE_GAME_H

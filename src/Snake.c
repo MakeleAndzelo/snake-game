@@ -1,9 +1,9 @@
 #include "../inc/Snake.h"
-#include "../inc/Game.h"
 
 struct Snake createSnake()
 {
     struct SnakeQueue *snakeQueue = (struct SnakeQueue *) malloc(sizeof(struct SnakeQueue));
+
 
     pushFront(snakeQueue, 0, 1);
     pushFront(snakeQueue, 0, 0);
@@ -17,7 +17,7 @@ bool moveUp(struct Snake *snake)
 {
     int newY = snake->snakeQueue.head->y - 1, newX = snake->snakeQueue.head->x;
 
-    if (newY < 0) {
+    if (!areCollisions(snake, newY, newX) || newY == -1) {
         return false;
     }
 
@@ -31,7 +31,7 @@ bool moveDown(struct Snake *snake)
 {
     int newY = snake->snakeQueue.head->y + 1, newX = snake->snakeQueue.head->x;
 
-    if (newY > yMax) {
+    if (!areCollisions(snake, newY, newX) || newY == yMax + 1) {
         return false;
     }
 
@@ -45,7 +45,7 @@ bool moveLeft(struct Snake *snake)
 {
     int newY = snake->snakeQueue.head->y, newX = snake->snakeQueue.head->x - 1;
 
-    if (newX < 0) {
+    if (!areCollisions(snake, newY, newX) || newX == -1) {
         return false;
     }
 
@@ -59,7 +59,7 @@ bool moveRight(struct Snake *snake)
 {
     int newY = snake->snakeQueue.head->y, newX = snake->snakeQueue.head->x + 1;
 
-    if (newX > xMax) {
+    if (!areCollisions(snake, newY, newX) || newX == xMax + 1) {
         return false;
     }
 
@@ -89,6 +89,13 @@ enum Status moveSnake(struct Snake *snake, enum Direction direction)
     }
 
     return SUCCESS;
+}
+
+void eatFruit(struct Snake *snake, int y, int x)
+{
+    insertNode(&fruits);
+    pushFront(&snake->snakeQueue, y + 1, x + 1);
+    deleteNode(&fruits, y, x);
 }
 
 void display(struct Snake snake)
