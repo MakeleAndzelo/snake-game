@@ -109,7 +109,6 @@ void removeQueue(struct SnakeQueue **queue)
         free((*queue)->head);
         (*queue)->head = next;
     }
-
 }
 
 int getSize(struct SnakeQueue *queue)

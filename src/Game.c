@@ -2,31 +2,40 @@
 #include <GL/glut.h>
 #include "../inc/Game.h"
 #include "../inc/Board.h"
+#include "../inc/Snake.h"
+
 
 const int WIDTH = 40;
 const int HEIGHT = 40;
 
 void setup(int *argc, char **argv)
 {
+    srand(time(0));
+
+    dir = RIGHT;
+    status = SUCCESS;
+
     glutInit(argc, argv);
     glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE);
     glutInitWindowSize(500, 500);
     glutCreateWindow("SNAKE");
     glutDisplayFunc(displayWindow);
     glutReshapeFunc(reshapeWindow);
+    glutTimerFunc(0, timer, 0);
+    glutSpecialFunc(getUserInput);
     glutMainLoop();
-
-    srand(time(0));
-
-    fruits = createList();
-    dir = RIGHT;
-    status = SUCCESS;
 }
 
 void displayWindow()
 {
     glClear(GL_COLOR_BUFFER_BIT);
     drawBoard(WIDTH, HEIGHT);
+    status = moveSnake(&snake);
+    if (status == FAILURE) {
+        exit(0);
+    }
+    drawSnake();
+    printList(*fruits);
     glutSwapBuffers();
 }
 
@@ -39,21 +48,35 @@ void reshapeWindow(int width, int height)
     glMatrixMode(GL_MODELVIEW);
 }
 
-enum Direction getUserInput(enum Direction previousDirection)
+void timer(int _)
 {
-    int ch = getch();
-    switch (ch) {
-        case KEY_LEFT:
-            if (previousDirection != RIGHT) return LEFT;
-        case KEY_RIGHT:
-            if (previousDirection != LEFT) return RIGHT;
-        case KEY_DOWN:
-            if (previousDirection != UP) return DOWN;
-        case KEY_UP:
-            if (previousDirection != DOWN) return UP;
+    glutPostRedisplay();
+    glutTimerFunc(1000/10, timer, 0);
+}
+
+void getUserInput(int key, int x, int y)
+{
+    switch (key) {
+        case GLUT_KEY_LEFT:
+            if (dir != RIGHT) dir =  LEFT;
+            break;
+        case GLUT_KEY_RIGHT:
+            if (dir != LEFT) dir = RIGHT;
+            break;
+        case GLUT_KEY_DOWN:
+            if (dir != UP) dir = DOWN;
+            break;
+        case GLUT_KEY_UP:
+            if (dir != DOWN) dir = UP;
+            break;
         default:
-            return previousDirection;
+            break;
     }
+}
+
+void drawSnake()
+{
+    display(snake);
 }
 
 bool areCollisions(struct Snake *snake, int y, int x)

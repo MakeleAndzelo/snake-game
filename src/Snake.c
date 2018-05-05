@@ -1,3 +1,5 @@
+#include <GL/gl.h>
+#include <GL/glut.h>
 #include "../inc/Snake.h"
 
 struct Snake createSnake()
@@ -5,8 +7,9 @@ struct Snake createSnake()
     struct SnakeQueue *snakeQueue = (struct SnakeQueue *) malloc(sizeof(struct SnakeQueue));
 
 
-    pushFront(snakeQueue, 0, 1);
-    pushFront(snakeQueue, 0, 0);
+    pushFront(snakeQueue, 20, 20);
+    pushFront(snakeQueue, 21, 20);
+    pushFront(snakeQueue, 22, 20);
 
     struct Snake snake = {*snakeQueue};
 
@@ -15,9 +18,9 @@ struct Snake createSnake()
 
 bool moveUp(struct Snake *snake)
 {
-    int newY = snake->snakeQueue.head->y - 1, newX = snake->snakeQueue.head->x;
+    int newY = snake->snakeQueue.head->y + 1, newX = snake->snakeQueue.head->x;
 
-    if (!areCollisions(snake, newY, newX) || newY == -1) {
+    if (!areCollisions(snake, newY, newX) || newY >= 39) {
         return false;
     }
 
@@ -29,9 +32,9 @@ bool moveUp(struct Snake *snake)
 
 bool moveDown(struct Snake *snake)
 {
-    int newY = snake->snakeQueue.head->y + 1, newX = snake->snakeQueue.head->x;
+    int newY = snake->snakeQueue.head->y - 1, newX = snake->snakeQueue.head->x;
 
-    if (!areCollisions(snake, newY, newX) || newY == yMax + 1) {
+    if (!areCollisions(snake, newY, newX) || newY < 1) {
         return false;
     }
 
@@ -45,7 +48,7 @@ bool moveLeft(struct Snake *snake)
 {
     int newY = snake->snakeQueue.head->y, newX = snake->snakeQueue.head->x - 1;
 
-    if (!areCollisions(snake, newY, newX) || newX == -1) {
+    if (!areCollisions(snake, newY, newX) || newX <= 0) {
         return false;
     }
 
@@ -59,7 +62,7 @@ bool moveRight(struct Snake *snake)
 {
     int newY = snake->snakeQueue.head->y, newX = snake->snakeQueue.head->x + 1;
 
-    if (!areCollisions(snake, newY, newX) || newX == xMax + 1) {
+    if (!areCollisions(snake, newY, newX) || newX >= 39) {
         return false;
     }
 
@@ -69,9 +72,9 @@ bool moveRight(struct Snake *snake)
     return true;
 }
 
-enum Status moveSnake(struct Snake *snake, enum Direction direction)
+enum Status moveSnake(struct Snake *snake)
 {
-    switch (direction) {
+    switch (dir) {
         case UP:
             if (!moveUp(snake)) return FAILURE;
             break;
@@ -102,7 +105,7 @@ void display(struct Snake snake)
 {
     struct SnakeQueueNode *head = snake.snakeQueue.head;
     while (NULL != head) {
-        mvaddch(head->y, head->x, 'o');
+        glRectd(head->x, head->y, head->x + 1, head->y + 1);
         head = head->next;
     }
 }

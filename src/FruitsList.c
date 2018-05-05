@@ -1,3 +1,5 @@
+#include <GL/gl.h>
+#include <GL/glut.h>
 #include "../inc/FruitsList.h"
 
 struct FruitsList *createList()
@@ -7,8 +9,8 @@ struct FruitsList *createList()
     struct FruitsList *list = (struct FruitsList *) malloc(sizeof(struct FruitsList));
 
     if (NULL != newNode) {
-        newNode->y = rand() % yMax;
-        newNode->x = rand() % xMax;
+        newNode->y = rand() % 38 + 1;
+        newNode->x = rand() % 38 + 1;
         newNode->next = NULL;
 
         list->front = newNode;
@@ -39,8 +41,8 @@ bool insertNode(struct FruitsList **list)
     struct FruitsListNode *newNode = (struct FruitsListNode *) malloc(sizeof(struct FruitsListNode));
 
     if (NULL != newNode) {
-        newNode->y = rand() % yMax;
-        newNode->x = rand() % xMax;
+        newNode->y = rand() % 38 + 1;
+        newNode->x = rand() % 38 + 1;
         newNode->next = NULL;
 
         *list = insertFront(*list, newNode);
@@ -101,7 +103,7 @@ bool deleteNode(struct FruitsList **list, int y, int x)
 void printList(struct FruitsList list)
 {
     for (; NULL != list.front; list.front = list.front->next) {
-        mvaddch(list.front->y, list.front->x, '*');
+        glRectd(list.front->x, list.front->y, list.front->x + 1, list.front->y + 1);
     }
     printf("\n");
 }

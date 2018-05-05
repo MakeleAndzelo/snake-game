@@ -4,9 +4,11 @@
 
 int main(int argc, char **argv)
 {
+    fruits = createList();
+    snake = createSnake();
     setup(&argc, argv);
-    struct Snake snake = createSnake();
 
     removeList(&fruits);
+
     return 0;
 }

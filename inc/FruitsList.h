@@ -1,6 +1,7 @@
 #ifndef SNAKE_LIST_H
 #define SNAKE_LIST_H
 
+#include <ncurses.h>
 #include <stdbool.h>
 #include <stdlib.h>
 #include <stdio.h>
