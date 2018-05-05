@@ -1,6 +1,10 @@
-#include "../inc/Game.h"
 #include <GL/gl.h>
 #include <GL/glut.h>
+#include "../inc/Game.h"
+#include "../inc/Board.h"
+
+const int WIDTH = 40;
+const int HEIGHT = 40;
 
 void setup(int *argc, char **argv)
 {
@@ -22,6 +26,7 @@ void setup(int *argc, char **argv)
 void displayWindow()
 {
     glClear(GL_COLOR_BUFFER_BIT);
+    drawBoard(WIDTH, HEIGHT);
     glutSwapBuffers();
 }
 
@@ -30,7 +35,7 @@ void reshapeWindow(int width, int height)
     glViewport(0, 0, (GLsizei)width, (GLsizei)height);
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    glOrtho(0.0, 40.0, 0.0, 40.0, -1.0, 1.0);
+    glOrtho(0.0, WIDTH, 0.0, HEIGHT, -1.0, 1.0);
     glMatrixMode(GL_MODELVIEW);
 }
 
