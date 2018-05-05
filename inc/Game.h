@@ -13,8 +13,9 @@ enum Status {FAILURE, SUCCESS} status;
 struct FruitsList *fruits;
 int yMax, xMax;
 
-
-void setup();
+void displayWindow();
+void reshapeWindow(int, int);
+void setup(int *, char **);
 enum Direction getUserInput(enum Direction);
 bool areCollisions(struct Snake *, int, int);
 

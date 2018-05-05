@@ -2,24 +2,11 @@
 #include "../inc/Game.h"
 #include "../inc/FruitsList.h"
 
-int main()
+int main(int argc, char **argv)
 {
-    setup();
+    setup(&argc, argv);
     struct Snake snake = createSnake();
 
-
-    do {
-        clear();
-        status = moveSnake(&snake, dir);
-        display(snake);
-        printList(*fruits);
-        if(status == FAILURE) break;
-    } while (dir = getUserInput(dir));
-
     removeList(&fruits);
-
-    getch();
-    endwin();
-
     return 0;
 }
