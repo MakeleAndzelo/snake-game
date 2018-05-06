@@ -96,14 +96,21 @@ enum Status moveSnake(struct Snake *snake)
 
 void eatFruit(struct Snake *snake, int y, int x)
 {
+    bool isToxic;
+
     insertNode(&fruits);
-    pushFront(&snake->snakeQueue, y + 1, x + 1);
-    deleteNode(&fruits, y, x);
+    deleteNode(&fruits, y, x, &isToxic);
+    if (isToxic) {
+        popBack(&snake->snakeQueue);
+    } else {
+        pushFront(&snake->snakeQueue, y + 1, x + 1);
+    }
 }
 
 void display(struct Snake snake)
 {
     struct SnakeQueueNode *head = snake.snakeQueue.head;
+    glColor3d(0.45, 0.60, 0.92);
     while (NULL != head) {
         glRectd(head->x, head->y, head->x + 1, head->y + 1);
         head = head->next;

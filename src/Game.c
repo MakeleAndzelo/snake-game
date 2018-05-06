@@ -10,8 +10,6 @@ const int HEIGHT = 40;
 
 void setup(int *argc, char **argv)
 {
-    srand(time(0));
-
     dir = RIGHT;
     status = SUCCESS;
 
@@ -31,7 +29,7 @@ void displayWindow()
     glClear(GL_COLOR_BUFFER_BIT);
     drawBoard(WIDTH, HEIGHT);
     status = moveSnake(&snake);
-    if (status == FAILURE) {
+    if (status == FAILURE || getSize(&snake.snakeQueue) == 1) {
         exit(0);
     }
     drawSnake();

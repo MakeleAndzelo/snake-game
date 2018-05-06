@@ -11,12 +11,13 @@ struct FruitsList *createList()
     if (NULL != newNode) {
         newNode->y = rand() % 38 + 1;
         newNode->x = rand() % 38 + 1;
+        newNode->isToxic = (rand() % 101) > 90 ? true : false;
         newNode->next = NULL;
 
         list->front = newNode;
     }
 
-    for(int i = 0; i < 5; i++) {
+    for(int i = 0; i < 2; i++) {
         insertNode(&list);
     }
 
@@ -43,6 +44,7 @@ bool insertNode(struct FruitsList **list)
     if (NULL != newNode) {
         newNode->y = rand() % 38 + 1;
         newNode->x = rand() % 38 + 1;
+        newNode->isToxic = (rand() % 101) > 90 ? true : false;
         newNode->next = NULL;
 
         *list = insertFront(*list, newNode);
@@ -64,7 +66,7 @@ struct FruitsList *deleteFront(struct FruitsList *list)
 struct FruitsListNode *findPrevNode(struct FruitsListNode *front, int y, int x)
 {
     struct FruitsListNode *prev = NULL;
-    while (NULL != front && front->y != y && front->x != x) {
+    while ((NULL != front) && (front->y != y) && (front->x != x)) {
         prev = front;
         front = front->next;
     }
@@ -81,19 +83,26 @@ void deleteAfter(struct FruitsListNode *node)
     }
 }
 
-bool deleteNode(struct FruitsList **list, int y, int x)
+bool deleteNode(struct FruitsList **list, int y, int x, bool *isToxic)
 {
     if (NULL == list) {
         return NULL;
     }
 
-    if ((*list)->front->y == y && (*list)->front->x == x) {
+    if (((*list)->front->y == y) && ((*list)->front->x == x)) {
         (*list)->size -= 1;
+        *isToxic = (*list)->front->isToxic;
         *list = deleteFront(*list);
         return true;
     }
 
+    /*
+     * TODO: USUNAC BUG Z USUWANIEM OWOCOW!
+     */
     struct FruitsListNode *prev = findPrevNode((*list)->front, y, x);
+    if (NULL != prev) {
+        *isToxic = prev->next->isToxic;
+    }
     deleteAfter(prev);
 
     (*list)->size -= 1;
@@ -103,9 +112,13 @@ bool deleteNode(struct FruitsList **list, int y, int x)
 void printList(struct FruitsList list)
 {
     for (; NULL != list.front; list.front = list.front->next) {
+        if ( true == list.front->isToxic ) {
+            glColor3d(1.0, 0.0, 0.0);
+        } else {
+            glColor3d(0.0, 1.0, 0.0);
+        }
         glRectd(list.front->x, list.front->y, list.front->x + 1, list.front->y + 1);
     }
-    printf("\n");
 }
 
 void removeList(struct FruitsList **list)

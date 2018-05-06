@@ -9,6 +9,7 @@
 
 struct FruitsListNode {
     int y, x;
+    bool isToxic;
     struct FruitsListNode *next;
 };
 
@@ -29,7 +30,7 @@ struct FruitsListNode *findPrevNode(struct FruitsListNode *, int , int);
 
 void deleteAfter(struct FruitsListNode *);
 
-bool deleteNode(struct FruitsList **, int, int);
+bool deleteNode(struct FruitsList **, int, int, bool *);
 
 void printList(struct FruitsList);
 
