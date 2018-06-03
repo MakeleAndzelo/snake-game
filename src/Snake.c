@@ -98,13 +98,15 @@ void eatFruit(struct Snake *snake, int y, int x)
 {
     bool isToxic;
 
-    insertNode(&fruits);
     deleteNode(&fruits, y, x, &isToxic);
+
     if (isToxic) {
         popBack(&snake->snakeQueue);
     } else {
         pushFront(&snake->snakeQueue, y + 1, x + 1);
     }
+
+    insertNode(&fruits);
 }
 
 void display(struct Snake snake)

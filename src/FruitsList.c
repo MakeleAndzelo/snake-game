@@ -66,11 +66,10 @@ struct FruitsList *deleteFront(struct FruitsList *list)
 struct FruitsListNode *findPrevNode(struct FruitsListNode *front, int y, int x)
 {
     struct FruitsListNode *prev = NULL;
-    while ((NULL != front) && (front->y != y) && (front->x != x)) {
+    while (((front->x != x) && (front->y != y)) && front) {
         prev = front;
         front = front->next;
     }
-
     return prev;
 }
 
@@ -86,26 +85,20 @@ void deleteAfter(struct FruitsListNode *node)
 bool deleteNode(struct FruitsList **list, int y, int x, bool *isToxic)
 {
     if (NULL == list) {
-        return NULL;
+        return false;
     }
 
     if (((*list)->front->y == y) && ((*list)->front->x == x)) {
         (*list)->size -= 1;
         *isToxic = (*list)->front->isToxic;
         *list = deleteFront(*list);
-        return true;
+    } else {
+        struct FruitsListNode *prev = findPrevNode((*list)->front, y, x)    ;
+        *isToxic = NULL == prev->next ? prev->isToxic : prev->next->isToxic;
+        deleteAfter(prev);
+        (*list)->size -= 1;
     }
 
-    /*
-     * TODO: USUNAC BUG Z USUWANIEM OWOCOW!
-     */
-    struct FruitsListNode *prev = findPrevNode((*list)->front, y, x);
-    if (NULL != prev) {
-        *isToxic = prev->next->isToxic;
-    }
-    deleteAfter(prev);
-
-    (*list)->size -= 1;
     return true;
 }
 

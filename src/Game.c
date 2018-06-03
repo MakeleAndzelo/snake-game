@@ -27,8 +27,8 @@ void setup(int *argc, char **argv)
 void displayWindow()
 {
     glClear(GL_COLOR_BUFFER_BIT);
-    drawBoard(WIDTH, HEIGHT);
     status = moveSnake(&snake);
+    drawBoard(WIDTH, HEIGHT);
     if (status == FAILURE || getSize(&snake.snakeQueue) == 1) {
         exit(0);
     }

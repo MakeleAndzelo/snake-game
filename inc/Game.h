@@ -7,7 +7,7 @@
 #include "./Snake.h"
 
 enum Direction {UP = 1, DOWN, RIGHT, LEFT} dir;
-enum Status {FAILURE, SUCCESS} status;
+enum Status {FAILURE = 0, SUCCESS} status;
 struct FruitsList *fruits;
 struct Snake snake;
 int yMax, xMax;
