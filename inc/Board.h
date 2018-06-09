@@ -4,6 +4,7 @@
 int boardX, boardY;
 
 void drawBoard(int, int);
+
 void unit(int, int);
 
 #endif //SNAKE_BOARD_H

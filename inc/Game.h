@@ -6,18 +6,28 @@
 #include "../inc/FruitsList.h"
 #include "./Snake.h"
 
-enum Direction {UP = 1, DOWN, RIGHT, LEFT} dir;
-enum Status {FAILURE = 0, SUCCESS} status;
+enum Direction {
+    UP = 1, DOWN, RIGHT, LEFT
+} dir;
+enum Status {
+    FAILURE = 0, SUCCESS
+} status;
 struct FruitsList *fruits;
 struct Snake snake;
 int yMax, xMax;
 
 void setup(int *, char **);
+
 void displayWindow();
+
 void reshapeWindow(int, int);
+
 void timer(int);
+
 void drawSnake();
+
 void getUserInput(int, int, int);
+
 bool areCollisions(struct Snake *, int, int);
 
 #endif //SNAKE_GAME_H

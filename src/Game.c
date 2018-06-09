@@ -3,13 +3,13 @@
 #include "../inc/Game.h"
 #include "../inc/Board.h"
 #include "../inc/Snake.h"
+#include "../inc/Point.h"
 
 
 const int WIDTH = 40;
 const int HEIGHT = 40;
 
-void setup(int *argc, char **argv)
-{
+void setup(int *argc, char **argv) {
     dir = RIGHT;
     status = SUCCESS;
 
@@ -24,8 +24,7 @@ void setup(int *argc, char **argv)
     glutMainLoop();
 }
 
-void displayWindow()
-{
+void displayWindow() {
     glClear(GL_COLOR_BUFFER_BIT);
     status = moveSnake(&snake);
     drawBoard(WIDTH, HEIGHT);
@@ -37,26 +36,23 @@ void displayWindow()
     glutSwapBuffers();
 }
 
-void reshapeWindow(int width, int height)
-{
-    glViewport(0, 0, (GLsizei)width, (GLsizei)height);
+void reshapeWindow(int width, int height) {
+    glViewport(0, 0, (GLsizei) width, (GLsizei) height);
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     glOrtho(0.0, WIDTH, 0.0, HEIGHT, -1.0, 1.0);
     glMatrixMode(GL_MODELVIEW);
 }
 
-void timer(int _)
-{
+void timer(int _) {
     glutPostRedisplay();
-    glutTimerFunc(1000/10, timer, 0);
+    glutTimerFunc(1000 / 10, timer, 0);
 }
 
-void getUserInput(int key, int x, int y)
-{
+void getUserInput(int key, int x, int y) {
     switch (key) {
         case GLUT_KEY_LEFT:
-            if (dir != RIGHT) dir =  LEFT;
+            if (dir != RIGHT) dir = LEFT;
             break;
         case GLUT_KEY_RIGHT:
             if (dir != LEFT) dir = RIGHT;
@@ -72,13 +68,11 @@ void getUserInput(int key, int x, int y)
     }
 }
 
-void drawSnake()
-{
+void drawSnake() {
     display(snake);
 }
 
-bool areCollisions(struct Snake *snake, int y, int x)
-{
+bool areCollisions(struct Snake *snake, int y, int x) {
     if (searchList(*fruits, y, x)) {
         eatFruit(snake, y, x);
     }

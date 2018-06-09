@@ -1,7 +1,6 @@
 #include "../inc/SnakeQueue.h"
 
-bool pushFront(struct SnakeQueue *queue, int y, int x)
-{
+bool pushFront(struct SnakeQueue *queue, int y, int x) {
     struct SnakeQueueNode *newNode = (struct SnakeQueueNode *) malloc(sizeof(struct SnakeQueueNode));
 
     if (NULL == newNode) {
@@ -25,11 +24,10 @@ bool pushFront(struct SnakeQueue *queue, int y, int x)
     return true;
 }
 
-bool pushBack(struct SnakeQueue *queue, int y, int x)
-{
+bool pushBack(struct SnakeQueue *queue, int y, int x) {
     struct SnakeQueueNode *newNode = (struct SnakeQueueNode *) malloc(sizeof(struct SnakeQueueNode));
 
-    if(NULL == newNode) {
+    if (NULL == newNode) {
         return false;
     }
 
@@ -50,8 +48,7 @@ bool pushBack(struct SnakeQueue *queue, int y, int x)
     return true;
 }
 
-bool popFront(struct SnakeQueue *queue)
-{
+bool popFront(struct SnakeQueue *queue) {
     if (NULL == queue->head) {
         return false;
     }
@@ -59,7 +56,7 @@ bool popFront(struct SnakeQueue *queue)
     struct SnakeQueueNode *tmp = queue->head->next;
     free(queue->head);
     queue->head = tmp;
-    if(NULL == tmp) {
+    if (NULL == tmp) {
         queue->tail = NULL;
     } else {
         queue->head->prev = NULL;
@@ -69,8 +66,7 @@ bool popFront(struct SnakeQueue *queue)
     return true;
 }
 
-bool popBack(struct SnakeQueue *queue)
-{
+bool popBack(struct SnakeQueue *queue) {
     if (NULL == queue->tail) {
         return false;
     }
@@ -78,7 +74,7 @@ bool popBack(struct SnakeQueue *queue)
     struct SnakeQueueNode *tmp = queue->tail->prev;
     free(queue->tail);
     queue->tail = tmp;
-    if(NULL == tmp) {
+    if (NULL == tmp) {
         queue->head = NULL;
     } else {
         queue->tail->next = NULL;
@@ -88,8 +84,7 @@ bool popBack(struct SnakeQueue *queue)
     return true;
 }
 
-bool searchQueue(struct SnakeQueue queue, int y, int x)
-{
+bool searchQueue(struct SnakeQueue queue, int y, int x) {
     while (NULL != queue.head) {
         if (queue.head->y == y && queue.head->x == x) {
             return true;
@@ -101,8 +96,7 @@ bool searchQueue(struct SnakeQueue queue, int y, int x)
     return false;
 }
 
-void removeQueue(struct SnakeQueue **queue)
-{
+void removeQueue(struct SnakeQueue **queue) {
     struct SnakeQueueNode *next = NULL;
     while (NULL != (*queue)->head) {
         next = (*queue)->head->next;
@@ -111,12 +105,10 @@ void removeQueue(struct SnakeQueue **queue)
     }
 }
 
-int getSize(struct SnakeQueue *queue)
-{
+int getSize(struct SnakeQueue *queue) {
     return queue->size;
 }
 
-bool isEmpty(struct SnakeQueue queue)
-{
+bool isEmpty(struct SnakeQueue queue) {
     return queue.size == 0;
 }

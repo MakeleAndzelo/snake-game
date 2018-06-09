@@ -2,10 +2,8 @@
 #include <GL/glut.h>
 #include "../inc/Snake.h"
 
-struct Snake createSnake()
-{
+struct Snake createSnake() {
     struct SnakeQueue *snakeQueue = (struct SnakeQueue *) malloc(sizeof(struct SnakeQueue));
-
 
     pushFront(snakeQueue, 20, 20);
     pushFront(snakeQueue, 21, 20);
@@ -16,8 +14,7 @@ struct Snake createSnake()
     return snake;
 }
 
-bool moveUp(struct Snake *snake)
-{
+bool moveUp(struct Snake *snake) {
     int newY = snake->snakeQueue.head->y + 1, newX = snake->snakeQueue.head->x;
 
     if (!areCollisions(snake, newY, newX) || newY >= 39) {
@@ -30,8 +27,7 @@ bool moveUp(struct Snake *snake)
     return true;
 }
 
-bool moveDown(struct Snake *snake)
-{
+bool moveDown(struct Snake *snake) {
     int newY = snake->snakeQueue.head->y - 1, newX = snake->snakeQueue.head->x;
 
     if (!areCollisions(snake, newY, newX) || newY < 1) {
@@ -44,8 +40,7 @@ bool moveDown(struct Snake *snake)
     return true;
 }
 
-bool moveLeft(struct Snake *snake)
-{
+bool moveLeft(struct Snake *snake) {
     int newY = snake->snakeQueue.head->y, newX = snake->snakeQueue.head->x - 1;
 
     if (!areCollisions(snake, newY, newX) || newX <= 0) {
@@ -58,8 +53,7 @@ bool moveLeft(struct Snake *snake)
     return true;
 }
 
-bool moveRight(struct Snake *snake)
-{
+bool moveRight(struct Snake *snake) {
     int newY = snake->snakeQueue.head->y, newX = snake->snakeQueue.head->x + 1;
 
     if (!areCollisions(snake, newY, newX) || newX >= 39) {
@@ -72,8 +66,7 @@ bool moveRight(struct Snake *snake)
     return true;
 }
 
-enum Status moveSnake(struct Snake *snake)
-{
+enum Status moveSnake(struct Snake *snake) {
     switch (dir) {
         case UP:
             if (!moveUp(snake)) return FAILURE;
@@ -94,8 +87,7 @@ enum Status moveSnake(struct Snake *snake)
     return SUCCESS;
 }
 
-void eatFruit(struct Snake *snake, int y, int x)
-{
+void eatFruit(struct Snake *snake, int y, int x) {
     bool isToxic;
 
     deleteNode(&fruits, y, x, &isToxic);
@@ -109,8 +101,7 @@ void eatFruit(struct Snake *snake, int y, int x)
     insertNode(&fruits);
 }
 
-void display(struct Snake snake)
-{
+void display(struct Snake snake) {
     struct SnakeQueueNode *head = snake.snakeQueue.head;
     glColor3d(0.45, 0.60, 0.92);
     while (NULL != head) {

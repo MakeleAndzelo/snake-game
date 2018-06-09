@@ -26,7 +26,7 @@ bool insertNode(struct FruitsList **);
 
 struct FruitsList *deleteFront(struct FruitsList *);
 
-struct FruitsListNode *findPrevNode(struct FruitsListNode *, int , int);
+struct FruitsListNode *findPrevNode(struct FruitsListNode *, int, int);
 
 void deleteAfter(struct FruitsListNode *);
 
