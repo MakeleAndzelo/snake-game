@@ -33,8 +33,8 @@ void displayWindow() {
         exit(0);
     }
     printObstacleList(*obstacles);
-    drawSnake();
     printList(*fruits);
+    display(snake);
     glutSwapBuffers();
 }
 
@@ -70,21 +70,14 @@ void getUserInput(int key, int x, int y) {
     }
 }
 
-void drawSnake() {
-    display(snake);
-}
-
 bool areCollisions(struct Snake *snake, int y, int x) {
     if (points[x][y]) {
         if (searchList(*fruits, y, x)) {
             eatFruit(snake, y, x);
+            return true;
         }
 
-        if (searchQueue(snake->snakeQueue, y, x)) {
-            return false;
-        }
-
-        if (searchObstacleList(*obstacles, y, x)) {
+        if (searchQueue(snake->snakeQueue, y, x) || searchObstacleList(*obstacles, y, x)) {
             return false;
         }
     }

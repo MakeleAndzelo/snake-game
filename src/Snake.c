@@ -8,9 +8,11 @@ struct Snake createSnake() {
 
     pushFront(snakeQueue, 20, 20);
     pushFront(snakeQueue, 21, 20);
+    pushFront(snakeQueue, 22, 20);
 
     changePointStatus(20, 20);
     changePointStatus(20, 21);
+    changePointStatus(20, 22);
     struct Snake snake = {*snakeQueue};
 
     return snake;
@@ -91,7 +93,6 @@ enum Status moveSnake(struct Snake *snake) {
 
 void eatFruit(struct Snake *snake, int y, int x) {
     bool isToxic;
-
     deleteNode(&fruits, y, x, &isToxic);
 
     if (isToxic) {
@@ -105,6 +106,10 @@ void eatFruit(struct Snake *snake, int y, int x) {
 
 void display(struct Snake snake) {
     struct SnakeQueueNode *head = snake.snakeQueue.head;
+    glColor3d(0, 0, 1);
+    glRectd(head->x, head->y, head->x + 1, head->y + 1);
+    head = head->next;
+
     glColor3d(0.45, 0.60, 0.92);
     while (NULL != head) {
         glRectd(head->x, head->y, head->x + 1, head->y + 1);
