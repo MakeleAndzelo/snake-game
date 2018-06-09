@@ -4,6 +4,7 @@
 #include "../inc/Board.h"
 #include "../inc/Snake.h"
 #include "../inc/Point.h"
+#include "../inc/ObstacleList.h"
 
 
 const int WIDTH = 40;
@@ -31,6 +32,7 @@ void displayWindow() {
     if (status == FAILURE || getSize(&snake.snakeQueue) == 1) {
         exit(0);
     }
+    printObstacleList(*obstacles);
     drawSnake();
     printList(*fruits);
     glutSwapBuffers();
@@ -73,12 +75,18 @@ void drawSnake() {
 }
 
 bool areCollisions(struct Snake *snake, int y, int x) {
-    if (searchList(*fruits, y, x)) {
-        eatFruit(snake, y, x);
-    }
+    if (points[x][y]) {
+        if (searchList(*fruits, y, x)) {
+            eatFruit(snake, y, x);
+        }
 
-    if (searchQueue(snake->snakeQueue, y, x)) {
-        return false;
+        if (searchQueue(snake->snakeQueue, y, x)) {
+            return false;
+        }
+
+        if (searchObstacleList(*obstacles, y, x)) {
+            return false;
+        }
     }
 
     return true;

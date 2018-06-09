@@ -14,6 +14,7 @@ enum Status {
 } status;
 struct FruitsList *fruits;
 struct Snake snake;
+struct ObstacleList *obstacles;
 int yMax, xMax;
 
 void setup(int *, char **);
