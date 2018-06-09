@@ -1,4 +1,5 @@
 #include "../inc/SnakeQueue.h"
+#include "../inc/Point.h"
 
 bool pushFront(struct SnakeQueue *queue, int y, int x) {
     struct SnakeQueueNode *newNode = (struct SnakeQueueNode *) malloc(sizeof(struct SnakeQueueNode));
@@ -11,7 +12,6 @@ bool pushFront(struct SnakeQueue *queue, int y, int x) {
     newNode->x = x;
     newNode->next = NULL;
     newNode->prev = NULL;
-
     if (NULL == queue->head) {
         queue->head = queue->tail = newNode;
     } else {
@@ -20,6 +20,7 @@ bool pushFront(struct SnakeQueue *queue, int y, int x) {
         queue->tail = newNode;
     }
 
+    changePointStatus(newNode->x, newNode->y);
     queue->size++;
     return true;
 }
@@ -44,6 +45,7 @@ bool pushBack(struct SnakeQueue *queue, int y, int x) {
         queue->head = newNode;
     }
 
+    changePointStatus(newNode->x, newNode->y);
     queue->size++;
     return true;
 }
@@ -53,6 +55,7 @@ bool popFront(struct SnakeQueue *queue) {
         return false;
     }
 
+    changePointStatus(queue->head->x, queue->head->y);
     struct SnakeQueueNode *tmp = queue->head->next;
     free(queue->head);
     queue->head = tmp;
@@ -71,6 +74,7 @@ bool popBack(struct SnakeQueue *queue) {
         return false;
     }
 
+    changePointStatus(queue->tail->x, queue->tail->y);
     struct SnakeQueueNode *tmp = queue->tail->prev;
     free(queue->tail);
     queue->tail = tmp;

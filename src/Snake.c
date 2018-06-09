@@ -1,14 +1,16 @@
 #include <GL/gl.h>
 #include <GL/glut.h>
 #include "../inc/Snake.h"
+#include "../inc/Point.h"
 
 struct Snake createSnake() {
     struct SnakeQueue *snakeQueue = (struct SnakeQueue *) malloc(sizeof(struct SnakeQueue));
 
     pushFront(snakeQueue, 20, 20);
     pushFront(snakeQueue, 21, 20);
-    pushFront(snakeQueue, 22, 20);
 
+    changePointStatus(20, 20);
+    changePointStatus(20, 21);
     struct Snake snake = {*snakeQueue};
 
     return snake;
