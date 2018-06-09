@@ -47,7 +47,7 @@ void reshapeWindow(int width, int height) {
     glMatrixMode(GL_MODELVIEW);
 }
 
-void timer(int _) {
+void timer() {
     glutPostRedisplay();
     glutTimerFunc(1000 / 10, timer, 0);
 }

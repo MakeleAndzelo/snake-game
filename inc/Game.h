@@ -26,7 +26,7 @@ void displayWindow();
 
 void reshapeWindow(int, int);
 
-void timer(int);
+void timer();
 
 void getUserInput(int);
 
