@@ -1,15 +1,15 @@
 #include "../inc/SnakeQueue.h"
 #include "../inc/Point.h"
 
-bool pushFront(struct SnakeQueue *queue, int y, int x) {
+bool pushFront(struct SnakeQueue *queue, int x, int y) {
     struct SnakeQueueNode *newNode = (struct SnakeQueueNode *) malloc(sizeof(struct SnakeQueueNode));
 
     if (NULL == newNode) {
         return false;
     }
 
-    newNode->y = y;
     newNode->x = x;
+    newNode->y = y;
     newNode->next = NULL;
     newNode->prev = NULL;
     if (NULL == queue->head) {
@@ -25,15 +25,15 @@ bool pushFront(struct SnakeQueue *queue, int y, int x) {
     return true;
 }
 
-bool pushBack(struct SnakeQueue *queue, int y, int x) {
+bool pushBack(struct SnakeQueue *queue, int x, int y) {
     struct SnakeQueueNode *newNode = (struct SnakeQueueNode *) malloc(sizeof(struct SnakeQueueNode));
 
     if (NULL == newNode) {
         return false;
     }
 
-    newNode->y = y;
     newNode->x = x;
+    newNode->y = y;
     newNode->next = NULL;
     newNode->prev = NULL;
 
@@ -47,25 +47,6 @@ bool pushBack(struct SnakeQueue *queue, int y, int x) {
 
     changePointStatus(newNode->x, newNode->y);
     queue->size++;
-    return true;
-}
-
-bool popFront(struct SnakeQueue *queue) {
-    if (NULL == queue->head) {
-        return false;
-    }
-
-    changePointStatus(queue->head->x, queue->head->y);
-    struct SnakeQueueNode *tmp = queue->head->next;
-    free(queue->head);
-    queue->head = tmp;
-    if (NULL == tmp) {
-        queue->tail = NULL;
-    } else {
-        queue->head->prev = NULL;
-    }
-
-    queue->size--;
     return true;
 }
 
@@ -88,9 +69,9 @@ bool popBack(struct SnakeQueue *queue) {
     return true;
 }
 
-bool searchQueue(struct SnakeQueue queue, int y, int x) {
+bool searchQueue(struct SnakeQueue queue, int x, int y) {
     while (NULL != queue.head) {
-        if (queue.head->y == y && queue.head->x == x) {
+        if (queue.head->x == x && queue.head->y == y) {
             return true;
         }
 
@@ -98,15 +79,6 @@ bool searchQueue(struct SnakeQueue queue, int y, int x) {
     }
 
     return false;
-}
-
-void removeQueue(struct SnakeQueue **queue) {
-    struct SnakeQueueNode *next = NULL;
-    while (NULL != (*queue)->head) {
-        next = (*queue)->head->next;
-        free((*queue)->head);
-        (*queue)->head = next;
-    }
 }
 
 int getSize(struct SnakeQueue *queue) {

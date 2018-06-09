@@ -4,6 +4,7 @@
 #include <time.h>
 #include <stdlib.h>
 #include "../inc/FruitsList.h"
+#include "../inc/ObstacleList.h"
 #include "./Snake.h"
 
 enum Direction {
@@ -15,7 +16,9 @@ enum Status {
 struct FruitsList *fruits;
 struct Snake snake;
 struct ObstacleList *obstacles;
-int yMax, xMax;
+
+
+void endGame();
 
 void setup(int *, char **);
 
@@ -25,9 +28,7 @@ void reshapeWindow(int, int);
 
 void timer(int);
 
-void drawSnake();
-
-void getUserInput(int, int, int);
+void getUserInput(int);
 
 bool areCollisions(struct Snake *, int, int);
 

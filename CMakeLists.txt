@@ -8,3 +8,4 @@ add_executable(Snake src/main.c src/SnakeQueue.c inc/SnakeQueue.h src/FruitsList
 target_link_libraries(Snake ncurses)
 target_link_libraries(Snake GL)
 target_link_libraries(Snake glut)
+target_link_libraries(Snake SDL2)

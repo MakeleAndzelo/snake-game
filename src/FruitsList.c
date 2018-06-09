@@ -10,8 +10,8 @@ struct FruitsList *createList() {
 
     if (NULL != newNode) {
         point = randomPoint();
-        newNode->y = point->y;
         newNode->x = point->x;
+        newNode->y = point->y;
         newNode->isToxic = (rand() % 101) > 90 ? true : false;
         newNode->next = NULL;
 
@@ -21,8 +21,6 @@ struct FruitsList *createList() {
     for (int i = 0; i < 2; i++) {
         insertNode(&list);
     }
-
-    list->size = 6;
 
     return list;
 }
@@ -43,28 +41,19 @@ bool insertNode(struct FruitsList **list) {
 
     if (NULL != newNode) {
         point = randomPoint();
-        newNode->y = point->y;
         newNode->x = point->x;
+        newNode->y = point->y;
         newNode->isToxic = (rand() % 101) > 90 ? true : false;
         newNode->next = NULL;
 
         *list = insertFront(*list, newNode);
     }
 
-    (*list)->size += 1;
     return true;
 }
 
-struct FruitsList *deleteFront(struct FruitsList *list) {
-    struct FruitsListNode *next = list->front->next;
-    free(list->front);
-    list->front = next;
-
-    return list;
-}
-
-struct FruitsListNode *findPrevNode(struct FruitsListNode *front, int y, int x) {
-    struct FruitsListNode *prev = NULL;
+struct FruitsListNode *findPrevNode(struct FruitsListNode *front, int x, int y) {
+    struct FruitsListNode *prev = front;
     while (((front->x != x) && (front->y != y)) && front) {
         prev = front;
         front = front->next;
@@ -80,20 +69,20 @@ void deleteAfter(struct FruitsListNode *node) {
     }
 }
 
-bool deleteNode(struct FruitsList **list, int y, int x, bool *isToxic) {
+bool deleteNode(struct FruitsList **list, int x, int y, bool *isToxic) {
     if (NULL == list) {
         return false;
     }
 
-    if (((*list)->front->y == y) && ((*list)->front->x == x)) {
-        (*list)->size -= 1;
+    if (((*list)->front->x == x) && ((*list)->front->y == y)) {
         *isToxic = (*list)->front->isToxic;
-        *list = deleteFront(*list);
+        struct FruitsListNode *next = (*list)->front->next;
+        free((*list)->front);
+        (*list)->front = next;
     } else {
-        struct FruitsListNode *prev = findPrevNode((*list)->front, y, x);
+        struct FruitsListNode *prev = findPrevNode((*list)->front, x, y);
         *isToxic = NULL == prev->next ? prev->isToxic : prev->next->isToxic;
         deleteAfter(prev);
-        (*list)->size -= 1;
     }
 
     return true;
@@ -110,29 +99,12 @@ void printList(struct FruitsList list) {
     }
 }
 
-void removeList(struct FruitsList **list) {
-    struct FruitsListNode *next = NULL;
-    while (NULL != (*list)->front) {
-        next = (*list)->front->next;
-        free((*list)->front);
-        (*list)->front = next;
-    }
-}
-
-bool searchList(struct FruitsList list, int y, int x) {
+bool searchList(struct FruitsList list, int x, int y) {
     for (; NULL != list.front; list.front = list.front->next) {
-        if (list.front->y == y && list.front->x == x) {
+        if (list.front->x == x && list.front->y == y) {
             return true;
         }
     }
 
     return false;
-}
-
-bool isListEmpty(struct FruitsList *list) {
-    return list->size == 0;
-}
-
-int getListSize(struct FruitsList *list) {
-    return list->size;
 }

@@ -6,7 +6,6 @@
 #include "../inc/Point.h"
 #include "../inc/ObstacleList.h"
 
-
 const int WIDTH = 40;
 const int HEIGHT = 40;
 
@@ -26,15 +25,17 @@ void setup(int *argc, char **argv) {
 }
 
 void displayWindow() {
-    glClear(GL_COLOR_BUFFER_BIT);
-    status = moveSnake(&snake);
-    drawBoard(WIDTH, HEIGHT);
-    if (status == FAILURE || getSize(&snake.snakeQueue) == 1) {
-        exit(0);
+    if (status == FAILURE || isEmpty(snake.snakeQueue)) {
+        glClear(GL_COLOR_BUFFER_BIT);
+        endGame();
+    } else {
+        glClear(GL_COLOR_BUFFER_BIT);
+        status = moveSnake(&snake);
+        drawBoard(WIDTH, HEIGHT);
+        printObstacleList(*obstacles);
+        printList(*fruits);
+        display(snake);
     }
-    printObstacleList(*obstacles);
-    printList(*fruits);
-    display(snake);
     glutSwapBuffers();
 }
 
@@ -51,7 +52,7 @@ void timer(int _) {
     glutTimerFunc(1000 / 10, timer, 0);
 }
 
-void getUserInput(int key, int x, int y) {
+void getUserInput(int key) {
     switch (key) {
         case GLUT_KEY_LEFT:
             if (dir != RIGHT) dir = LEFT;
@@ -70,17 +71,40 @@ void getUserInput(int key, int x, int y) {
     }
 }
 
-bool areCollisions(struct Snake *snake, int y, int x) {
+bool areCollisions(struct Snake *snake, int x, int y) {
     if (points[x][y]) {
-        if (searchList(*fruits, y, x)) {
-            eatFruit(snake, y, x);
+        if (searchList(*fruits, x, y)) {
+            eatFruit(snake, x, y);
             return true;
         }
 
-        if (searchQueue(snake->snakeQueue, y, x) || searchObstacleList(*obstacles, y, x)) {
+        if (searchQueue(snake->snakeQueue, x, y) || searchObstacleList(*obstacles, x, y)) {
             return false;
         }
     }
 
     return true;
+}
+
+void endGame() {
+    char end[64] = "KONIEC GRY";
+    char score[20];
+    sprintf(score, "Dlugosc weza: %d", getSize(&snake.snakeQueue));
+    glColor3f(.7, .7, .3);
+
+    glPushMatrix();
+    glTranslatef(0, 30, 0);
+    glScalef(.05, .05, .05);
+    for (int c = 0; end[c] != 0; ++c) {
+        glutStrokeCharacter(GLUT_STROKE_ROMAN, end[c]);
+    }
+    glPopMatrix();
+
+    glPushMatrix();
+    glTranslatef(9, 10, 0);
+    glScalef(.02, .02, .02);
+    for (int i = 0; score[i] != 0; ++i) {
+        glutStrokeCharacter(GLUT_STROKE_ROMAN, score[i]);
+    }
+    glPopMatrix();
 }

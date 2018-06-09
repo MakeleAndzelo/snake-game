@@ -12,11 +12,8 @@ struct Point *randomPoint() {
         } while (points[newPoint->x][newPoint->y]);
     }
 
-    if (points[newPoint->x][newPoint->y]) {
-        printf("TE SAME BITCH!");
-    }
-
     changePointStatus(newPoint->x, newPoint->y);
+
     return newPoint;
 }
 

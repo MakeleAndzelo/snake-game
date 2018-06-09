@@ -18,13 +18,9 @@ bool pushFront(struct SnakeQueue *, int, int);
 
 bool pushBack(struct SnakeQueue *, int, int);
 
-bool popFront(struct SnakeQueue *);
-
 bool popBack(struct SnakeQueue *);
 
 bool searchQueue(struct SnakeQueue, int, int);
-
-void removeQueue(struct SnakeQueue **);
 
 int getSize(struct SnakeQueue *);
 

@@ -10,8 +10,8 @@ struct ObstacleList *createObstacleList() {
 
     if (NULL != newNode) {
         point = randomPoint();
-        newNode->y = point->y;
         newNode->x = point->x;
+        newNode->y = point->y;
         newNode->next = NULL;
 
         list->front = newNode;
@@ -40,8 +40,8 @@ bool insertObstacle(struct ObstacleList **list) {
 
     if (NULL != newNode) {
         point = randomPoint();
-        newNode->y = point->y;
         newNode->x = point->x;
+        newNode->y = point->y;
         newNode->next = NULL;
 
         *list = insertToObstaclesFront(*list, newNode);
@@ -57,9 +57,9 @@ void printObstacleList(struct ObstacleList list) {
     }
 }
 
-bool searchObstacleList(struct ObstacleList list, int y, int x) {
+bool searchObstacleList(struct ObstacleList list, int x, int y) {
     for (; NULL != list.front; list.front = list.front->next) {
-        if (list.front->y == y && list.front->x == x) {
+        if (list.front->x == x && list.front->y == y) {
             return true;
         }
     }
