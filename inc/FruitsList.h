@@ -18,23 +18,62 @@ struct FruitsList {
     int size;
 };
 
+/**
+ * funkcja tworząca listę owoców
+ * @return lista stworzona przez funkcje
+ */
 struct FruitsList *createList();
 
+/**
+ * funkcja dodająca element na początek listy
+ * @return lista po dodaniu elementu
+ */
 struct FruitsList *insertFront(struct FruitsList *, struct FruitsListNode *);
 
+/**
+ * funkcja dodająca do listy owoc o losowym położeniu i prawdopodobieństwie 0.1 na bycie toksycznym
+ * @return flaga określająca czy dodawanie się powiodło
+ */
 bool insertNode(struct FruitsList **);
 
+/**
+ * funkcja usuwająca owoc z początku listy
+ * @return
+ */
 struct FruitsList *deleteFront(struct FruitsList *);
 
-struct FruitsListNode *findPrevNode(struct FruitsListNode *, int , int);
+/**
+ * funkcja znajdująca owoc, który znajduje sie w liście przed owocem o podanych koordynatach
+ * @return szukany owoc
+ */
+struct FruitsListNode *findPrevNode(struct FruitsListNode *, int y, int x);
 
+/**
+ * funkcja usuwająca element w liście owoców za podanym elementem
+ */
 void deleteAfter(struct FruitsListNode *);
 
-bool deleteNode(struct FruitsList **, int, int, bool *);
+/**
+ * funkcja usuwająca element o podanych koordynatach
+ * @param y współrzędna Y
+ * @param x współrzędna X
+ * @param isToxic flaga określająca czy element był toksyczny dla węża
+ * @return
+ */
+bool deleteNode(struct FruitsList **, int y, int x, bool *isToxic);
 
+/**
+ * funkcja drukująca daną listę owoców na ekran
+ */
 void printList(struct FruitsList);
 
-bool searchList(struct FruitsList, int, int);
+/**
+ * funkcja określająca czy w liście owoców znajduje się owoc o zadanych koordynatach
+ * @param y współrzędna Y
+ * @param x współrzędna X
+ * @return flaga określająca czy owoc został odlaneziony
+ */
+bool searchList(struct FruitsList, int y, int x);
 
 void removeList(struct FruitsList **);
 

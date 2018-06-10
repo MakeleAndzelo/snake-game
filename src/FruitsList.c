@@ -93,7 +93,7 @@ bool deleteNode(struct FruitsList **list, int y, int x, bool *isToxic)
         *isToxic = (*list)->front->isToxic;
         *list = deleteFront(*list);
     } else {
-        struct FruitsListNode *prev = findPrevNode((*list)->front, y, x)    ;
+        struct FruitsListNode *prev = findPrevNode((*list)->front, y, x);
         *isToxic = NULL == prev->next ? prev->isToxic : prev->next->isToxic;
         deleteAfter(prev);
         (*list)->size -= 1;
