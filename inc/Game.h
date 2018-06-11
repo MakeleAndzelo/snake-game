@@ -15,8 +15,11 @@ enum Direction {
 enum Status {
     FAILURE = 0, SUCCESS
 } status;
+/** zmienna globalna reprezentująca listę owoców na planszy */
 struct FruitsList *fruits;
+/** zmienna globalna reprezentująca obecny stan węża */
 struct Snake snake;
+/** zmienna globalna reprezentująca listę przeszkód na planszy */
 struct ObstacleList *obstacles;
 
 /**

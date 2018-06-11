@@ -4,7 +4,7 @@
 #ifndef SNAKE_QUEUE_H
 #define SNAKE_QUEUE_H
 
-/*! typ bazowy elementu kolejki węża (lista dwukierunkowa) */
+/*! typ bazowy elementu kolejki węża opartej o wiązaną listę dwukierunkową*/
 struct SnakeQueueNode {
     /** Współrzędna X */
     int x;
