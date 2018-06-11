@@ -7,14 +7,21 @@
 #include <stdio.h>
 #include "../inc/Game.h"
 
+/*! typ bazowy elementu listy owoców (lista jednokierunkowa) */
 struct FruitsListNode {
-    int x, y;
+    /** Współrzędna X */
+    int x;
+    /** Współrzędna Y */
+    int y;
+    /** Flaga określająca czy owoc był toksyczny */
     bool isToxic;
+    /** Wskaźnik na kolejny element w liście */
     struct FruitsListNode *next;
 };
 
+/* typ bazowy listy owoców */
 struct FruitsList {
-    struct FruitsListNode *front;
+    struct FruitsListNode *front; /**!< Wskaźnik na początek listy*/
 };
 
 /**

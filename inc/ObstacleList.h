@@ -3,19 +3,19 @@
 
 #include <stdbool.h>
 
-/**
- * typ bazowy elementu listy przeszkód
- */
+/*! typ bazowy elementu listy przeszkód (lista jednokierunkowa) */
 struct ObstacleListNode {
-    int x, y;
+    /** Współrzędna X */
+    int x;
+    /** Współrzędna Y */
+    int y;
+    /** Wskaźnik na kolejny element listy przeszkód */
     struct ObstacleListNode *next;
 };
 
-/**
- * typ bazowy listy przeszkód
- */
+/* typ bazowy listy przeszkód */
 struct ObstacleList {
-    struct ObstacleListNode *front;
+    struct ObstacleListNode *front; /**!< Wskaźnik na początek listy */
 };
 
 /**

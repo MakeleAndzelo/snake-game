@@ -5,10 +5,9 @@
 #include "SnakeQueue.h"
 #include "../inc/FruitsList.h"
 
-/**
- * typ bazowy przechowujący informacje o wężu
- */
+/*! typ bazowy przechowujący informacje o wężu */
 struct Snake {
+    /** Pole przechowujące kolejkę elementów węża */
     struct SnakeQueue snakeQueue;
 };
 

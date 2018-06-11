@@ -3,11 +3,12 @@
 
 #include <stdbool.h>
 
-/**
- * typ bazowy punktu w układzie kartezjańskim
- */
+/*! typ bazowy punktu w układzie kartezjańskim */
 struct Point {
-    int x, y;
+    /** Współrzędna X */
+    int x;
+    /** Współrzędna Y */
+    int y;
 };
 
 bool points[40][40];

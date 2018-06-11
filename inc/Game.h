@@ -7,9 +7,7 @@
 #include "../inc/ObstacleList.h"
 #include "./Snake.h"
 
-/**
- * typ wyliczeniowy reprezentujący kierunek węża
- */
+/*! typ wyliczeniowy reprezentujący kierunek węża */
 enum Direction {
     UP = 1, DOWN, RIGHT, LEFT
 } dir;

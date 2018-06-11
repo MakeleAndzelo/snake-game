@@ -1,0 +1,83 @@
+\hypertarget{_snake_queue_8h}{}\section{Dokumentacja pliku inc/\+Snake\+Queue.h}
+\label{_snake_queue_8h}\index{inc/\+Snake\+Queue.\+h@{inc/\+Snake\+Queue.\+h}}
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+\subsection*{Komponenty}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_snake_queue_node}{Snake\+Queue\+Node}}
+\item 
+struct \mbox{\hyperlink{struct_snake_queue}{Snake\+Queue}}
+\end{DoxyCompactItemize}
+\subsection*{Funkcje}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{_snake_queue_8h_a45fb052cdf9abfdffddeef1002a42fa7}{push\+Front}} (struct \mbox{\hyperlink{struct_snake_queue}{Snake\+Queue}} $\ast$, int x, int y)
+\item 
+bool \mbox{\hyperlink{_snake_queue_8h_a0fa4d9d6888bc76506d8db576901b2df}{push\+Back}} (struct \mbox{\hyperlink{struct_snake_queue}{Snake\+Queue}} $\ast$, int x, int y)
+\item 
+bool \mbox{\hyperlink{_snake_queue_8h_a4225a35840001a8f46bcafc608fb7bcf}{pop\+Back}} (struct \mbox{\hyperlink{struct_snake_queue}{Snake\+Queue}} $\ast$)
+\item 
+bool \mbox{\hyperlink{_snake_queue_8h_ae753244e8382f1f5682b4cec525e9064}{search\+Queue}} (struct \mbox{\hyperlink{struct_snake_queue}{Snake\+Queue}}, int x, int y)
+\item 
+int \mbox{\hyperlink{_snake_queue_8h_a410754a5b6e4ac64040615742589406c}{get\+Size}} (struct \mbox{\hyperlink{struct_snake_queue}{Snake\+Queue}} $\ast$)
+\item 
+bool \mbox{\hyperlink{_snake_queue_8h_ad1120162f0354f4d656126c930bb446f}{is\+Empty}} (struct \mbox{\hyperlink{struct_snake_queue}{Snake\+Queue}})
+\end{DoxyCompactItemize}
+
+
+\subsection{Dokumentacja funkcji}
+\mbox{\Hypertarget{_snake_queue_8h_a410754a5b6e4ac64040615742589406c}\label{_snake_queue_8h_a410754a5b6e4ac64040615742589406c}} 
+\index{Snake\+Queue.\+h@{Snake\+Queue.\+h}!get\+Size@{get\+Size}}
+\index{get\+Size@{get\+Size}!Snake\+Queue.\+h@{Snake\+Queue.\+h}}
+\subsubsection{\texorpdfstring{get\+Size()}{getSize()}}
+{\footnotesize\ttfamily int get\+Size (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_snake_queue}{Snake\+Queue}} $\ast$}]{ }\end{DoxyParamCaption})}
+
+funkcja pobierająca ilość elementów w kolejce węża \begin{DoxyReturn}{Zwraca}
+ilość elementów w kolejce węża 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_snake_queue_8h_ad1120162f0354f4d656126c930bb446f}\label{_snake_queue_8h_ad1120162f0354f4d656126c930bb446f}} 
+\index{Snake\+Queue.\+h@{Snake\+Queue.\+h}!is\+Empty@{is\+Empty}}
+\index{is\+Empty@{is\+Empty}!Snake\+Queue.\+h@{Snake\+Queue.\+h}}
+\subsubsection{\texorpdfstring{is\+Empty()}{isEmpty()}}
+{\footnotesize\ttfamily bool is\+Empty (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_snake_queue}{Snake\+Queue}}}]{ }\end{DoxyParamCaption})}
+
+funkcja określająca czy kolejka węża jest pusta \begin{DoxyReturn}{Zwraca}
+flaga określająca czy kolejka jest pusta 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_snake_queue_8h_a4225a35840001a8f46bcafc608fb7bcf}\label{_snake_queue_8h_a4225a35840001a8f46bcafc608fb7bcf}} 
+\index{Snake\+Queue.\+h@{Snake\+Queue.\+h}!pop\+Back@{pop\+Back}}
+\index{pop\+Back@{pop\+Back}!Snake\+Queue.\+h@{Snake\+Queue.\+h}}
+\subsubsection{\texorpdfstring{pop\+Back()}{popBack()}}
+{\footnotesize\ttfamily bool pop\+Back (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_snake_queue}{Snake\+Queue}} $\ast$}]{ }\end{DoxyParamCaption})}
+
+funkcja zdejmująca element z końca kolejki \begin{DoxyReturn}{Zwraca}
+flaga określająca czy zdejmowanie się powiodło 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_snake_queue_8h_a0fa4d9d6888bc76506d8db576901b2df}\label{_snake_queue_8h_a0fa4d9d6888bc76506d8db576901b2df}} 
+\index{Snake\+Queue.\+h@{Snake\+Queue.\+h}!push\+Back@{push\+Back}}
+\index{push\+Back@{push\+Back}!Snake\+Queue.\+h@{Snake\+Queue.\+h}}
+\subsubsection{\texorpdfstring{push\+Back()}{pushBack()}}
+{\footnotesize\ttfamily bool push\+Back (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_snake_queue}{Snake\+Queue}} $\ast$}]{,  }\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+funkcja dodająca element o podanych koordynatach na koniec kolejki \begin{DoxyReturn}{Zwraca}
+flaga określająca czy dodawanie się powiodło 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_snake_queue_8h_a45fb052cdf9abfdffddeef1002a42fa7}\label{_snake_queue_8h_a45fb052cdf9abfdffddeef1002a42fa7}} 
+\index{Snake\+Queue.\+h@{Snake\+Queue.\+h}!push\+Front@{push\+Front}}
+\index{push\+Front@{push\+Front}!Snake\+Queue.\+h@{Snake\+Queue.\+h}}
+\subsubsection{\texorpdfstring{push\+Front()}{pushFront()}}
+{\footnotesize\ttfamily bool push\+Front (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_snake_queue}{Snake\+Queue}} $\ast$}]{,  }\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+funkcja dodająca element o podanych koordynatach na początek kolejki \begin{DoxyReturn}{Zwraca}
+flaga określająca czy dodawanie się powiodło 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_snake_queue_8h_ae753244e8382f1f5682b4cec525e9064}\label{_snake_queue_8h_ae753244e8382f1f5682b4cec525e9064}} 
+\index{Snake\+Queue.\+h@{Snake\+Queue.\+h}!search\+Queue@{search\+Queue}}
+\index{search\+Queue@{search\+Queue}!Snake\+Queue.\+h@{Snake\+Queue.\+h}}
+\subsubsection{\texorpdfstring{search\+Queue()}{searchQueue()}}
+{\footnotesize\ttfamily bool search\+Queue (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_snake_queue}{Snake\+Queue}}}]{,  }\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+funkcja określająca czy w kolejce występuje element o podanych koordynatach \begin{DoxyReturn}{Zwraca}
+flaga określająca czy podany element wystąpił 
+\end{DoxyReturn}

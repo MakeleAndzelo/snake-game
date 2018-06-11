@@ -1,0 +1,197 @@
+\hypertarget{_game_8h}{}\section{Dokumentacja pliku inc/\+Game.h}
+\label{_game_8h}\index{inc/\+Game.\+h@{inc/\+Game.\+h}}
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}../inc/\+Fruits\+List.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../inc/\+Obstacle\+List.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}./\+Snake.\+h\char`\"{}}\newline
+\subsection*{Wyliczenia}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{_game_8h_a224b9163917ac32fc95a60d8c1eec3aa}{Direction}} \{ \mbox{\hyperlink{_game_8h_a224b9163917ac32fc95a60d8c1eec3aaaba595d8bca8bc5e67c37c0a9d89becfa}{UP}} = 1, 
+\mbox{\hyperlink{_game_8h_a224b9163917ac32fc95a60d8c1eec3aaa9b0b4a95b99523966e0e34ffdadac9da}{D\+O\+WN}}, 
+\mbox{\hyperlink{_game_8h_a224b9163917ac32fc95a60d8c1eec3aaaec8379af7490bb9eaaf579cf17876f38}{R\+I\+G\+HT}}, 
+\mbox{\hyperlink{_game_8h_a224b9163917ac32fc95a60d8c1eec3aaadb45120aafd37a973140edee24708065}{L\+E\+FT}}
+ \}
+\item 
+enum \mbox{\hyperlink{_game_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \{ \mbox{\hyperlink{_game_8h_a67a0db04d321a74b7e7fcfd3f1a3f70baa5571864412c8275a2e18a931fddcaa6}{F\+A\+I\+L\+U\+RE}} = 0, 
+\mbox{\hyperlink{_game_8h_a67a0db04d321a74b7e7fcfd3f1a3f70bac7f69f7c9e5aea9b8f54cf02870e2bf8}{S\+U\+C\+C\+E\+SS}}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Funkcje}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_game_8h_aeda119595fcc834db9cfec532a90cf79}{end\+Game}} ()
+\item 
+void \mbox{\hyperlink{_game_8h_aa7ba3645f571434a34b110b82e0d1b56}{setup}} (int $\ast$argc, char $\ast$$\ast$argv)
+\item 
+void \mbox{\hyperlink{_game_8h_ae4a812d8b7439fcb1dda96ee07dffabd}{display\+Window}} ()
+\item 
+void \mbox{\hyperlink{_game_8h_afbaa7496a3535c60fe7d48364c2084ba}{reshape\+Window}} (int width, int height)
+\item 
+void \mbox{\hyperlink{_game_8h_a3c3e683a005eace2dd1e4d551056d9b6}{timer}} ()
+\item 
+void \mbox{\hyperlink{_game_8h_a6edf0c9e4cf2fd05c58bcc9fd1516fa8}{get\+User\+Input}} (int key)
+\item 
+bool \mbox{\hyperlink{_game_8h_a19acb1001fbb0d94413a8e21e63bb2a6}{are\+Collisions}} (struct \mbox{\hyperlink{struct_snake}{Snake}} $\ast$\mbox{\hyperlink{_game_8h_a34d0b1072820e65492ab46abcab01a8d}{snake}}, int x, int y)
+\end{DoxyCompactItemize}
+\subsection*{Zmienne}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{_game_8h_a224b9163917ac32fc95a60d8c1eec3aa}{Direction}} \mbox{\hyperlink{_game_8h_a635554ce5e42a46d9440857a05f0a2be}{dir}}
+\item 
+enum \mbox{\hyperlink{_game_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{_game_8h_a28529a1c9a8abd411102fb7507a886cb}{status}}
+\item 
+struct \mbox{\hyperlink{struct_fruits_list}{Fruits\+List}} $\ast$ \mbox{\hyperlink{_game_8h_acd6dabec31df31031412b3a41a48c94e}{fruits}}
+\item 
+struct \mbox{\hyperlink{struct_snake}{Snake}} \mbox{\hyperlink{_game_8h_a34d0b1072820e65492ab46abcab01a8d}{snake}}
+\item 
+struct \mbox{\hyperlink{struct_obstacle_list}{Obstacle\+List}} $\ast$ \mbox{\hyperlink{_game_8h_ab3342cd76a924204cda81e024fbbfcce}{obstacles}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Dokumentacja typów wyliczanych}
+\mbox{\Hypertarget{_game_8h_a224b9163917ac32fc95a60d8c1eec3aa}\label{_game_8h_a224b9163917ac32fc95a60d8c1eec3aa}} 
+\index{Game.\+h@{Game.\+h}!Direction@{Direction}}
+\index{Direction@{Direction}!Game.\+h@{Game.\+h}}
+\subsubsection{\texorpdfstring{Direction}{Direction}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_game_8h_a224b9163917ac32fc95a60d8c1eec3aa}{Direction}}}
+
+typ wyliczeniowy reprezentujący kierunek węża \begin{DoxyEnumFields}{Wartości wyliczeń}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UP@{UP}!Game.\+h@{Game.\+h}}\index{Game.\+h@{Game.\+h}!UP@{UP}}}\mbox{\Hypertarget{_game_8h_a224b9163917ac32fc95a60d8c1eec3aaaba595d8bca8bc5e67c37c0a9d89becfa}\label{_game_8h_a224b9163917ac32fc95a60d8c1eec3aaaba595d8bca8bc5e67c37c0a9d89becfa}} 
+UP&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{D\+O\+WN@{D\+O\+WN}!Game.\+h@{Game.\+h}}\index{Game.\+h@{Game.\+h}!D\+O\+WN@{D\+O\+WN}}}\mbox{\Hypertarget{_game_8h_a224b9163917ac32fc95a60d8c1eec3aaa9b0b4a95b99523966e0e34ffdadac9da}\label{_game_8h_a224b9163917ac32fc95a60d8c1eec3aaa9b0b4a95b99523966e0e34ffdadac9da}} 
+D\+O\+WN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{R\+I\+G\+HT@{R\+I\+G\+HT}!Game.\+h@{Game.\+h}}\index{Game.\+h@{Game.\+h}!R\+I\+G\+HT@{R\+I\+G\+HT}}}\mbox{\Hypertarget{_game_8h_a224b9163917ac32fc95a60d8c1eec3aaaec8379af7490bb9eaaf579cf17876f38}\label{_game_8h_a224b9163917ac32fc95a60d8c1eec3aaaec8379af7490bb9eaaf579cf17876f38}} 
+R\+I\+G\+HT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{L\+E\+FT@{L\+E\+FT}!Game.\+h@{Game.\+h}}\index{Game.\+h@{Game.\+h}!L\+E\+FT@{L\+E\+FT}}}\mbox{\Hypertarget{_game_8h_a224b9163917ac32fc95a60d8c1eec3aaadb45120aafd37a973140edee24708065}\label{_game_8h_a224b9163917ac32fc95a60d8c1eec3aaadb45120aafd37a973140edee24708065}} 
+L\+E\+FT&\\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{_game_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}\label{_game_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}} 
+\index{Game.\+h@{Game.\+h}!Status@{Status}}
+\index{Status@{Status}!Game.\+h@{Game.\+h}}
+\subsubsection{\texorpdfstring{Status}{Status}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_game_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}}}
+
+\begin{DoxyEnumFields}{Wartości wyliczeń}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{F\+A\+I\+L\+U\+RE@{F\+A\+I\+L\+U\+RE}!Game.\+h@{Game.\+h}}\index{Game.\+h@{Game.\+h}!F\+A\+I\+L\+U\+RE@{F\+A\+I\+L\+U\+RE}}}\mbox{\Hypertarget{_game_8h_a67a0db04d321a74b7e7fcfd3f1a3f70baa5571864412c8275a2e18a931fddcaa6}\label{_game_8h_a67a0db04d321a74b7e7fcfd3f1a3f70baa5571864412c8275a2e18a931fddcaa6}} 
+F\+A\+I\+L\+U\+RE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S\+U\+C\+C\+E\+SS@{S\+U\+C\+C\+E\+SS}!Game.\+h@{Game.\+h}}\index{Game.\+h@{Game.\+h}!S\+U\+C\+C\+E\+SS@{S\+U\+C\+C\+E\+SS}}}\mbox{\Hypertarget{_game_8h_a67a0db04d321a74b7e7fcfd3f1a3f70bac7f69f7c9e5aea9b8f54cf02870e2bf8}\label{_game_8h_a67a0db04d321a74b7e7fcfd3f1a3f70bac7f69f7c9e5aea9b8f54cf02870e2bf8}} 
+S\+U\+C\+C\+E\+SS&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\subsection{Dokumentacja funkcji}
+\mbox{\Hypertarget{_game_8h_a19acb1001fbb0d94413a8e21e63bb2a6}\label{_game_8h_a19acb1001fbb0d94413a8e21e63bb2a6}} 
+\index{Game.\+h@{Game.\+h}!are\+Collisions@{are\+Collisions}}
+\index{are\+Collisions@{are\+Collisions}!Game.\+h@{Game.\+h}}
+\subsubsection{\texorpdfstring{are\+Collisions()}{areCollisions()}}
+{\footnotesize\ttfamily bool are\+Collisions (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_snake}{Snake}} $\ast$}]{snake,  }\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+funkcja sprawdzająca czy wąż koliduje z bytem występującym na podanej współrzędnej 
+\begin{DoxyParams}{Parametry}
+{\em snake} & struktura węża \\
+\hline
+{\em x} & współrzędna X \\
+\hline
+{\em y} & współrzędna Y \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Zwraca}
+flaga określająca czy wystąpiła kolizja 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_game_8h_ae4a812d8b7439fcb1dda96ee07dffabd}\label{_game_8h_ae4a812d8b7439fcb1dda96ee07dffabd}} 
+\index{Game.\+h@{Game.\+h}!display\+Window@{display\+Window}}
+\index{display\+Window@{display\+Window}!Game.\+h@{Game.\+h}}
+\subsubsection{\texorpdfstring{display\+Window()}{displayWindow()}}
+{\footnotesize\ttfamily void display\+Window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+funkcja inicjująca okno gry \mbox{\Hypertarget{_game_8h_aeda119595fcc834db9cfec532a90cf79}\label{_game_8h_aeda119595fcc834db9cfec532a90cf79}} 
+\index{Game.\+h@{Game.\+h}!end\+Game@{end\+Game}}
+\index{end\+Game@{end\+Game}!Game.\+h@{Game.\+h}}
+\subsubsection{\texorpdfstring{end\+Game()}{endGame()}}
+{\footnotesize\ttfamily void end\+Game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+funkcja kończąca grę, wyświetla napisy końcowe \mbox{\Hypertarget{_game_8h_a6edf0c9e4cf2fd05c58bcc9fd1516fa8}\label{_game_8h_a6edf0c9e4cf2fd05c58bcc9fd1516fa8}} 
+\index{Game.\+h@{Game.\+h}!get\+User\+Input@{get\+User\+Input}}
+\index{get\+User\+Input@{get\+User\+Input}!Game.\+h@{Game.\+h}}
+\subsubsection{\texorpdfstring{get\+User\+Input()}{getUserInput()}}
+{\footnotesize\ttfamily void get\+User\+Input (\begin{DoxyParamCaption}\item[{int}]{key }\end{DoxyParamCaption})}
+
+funkcja pobierająca klawisz naciśnięty przez gracza, oraz ustawiająca pozycję w którą porusza się wąż \mbox{\Hypertarget{_game_8h_afbaa7496a3535c60fe7d48364c2084ba}\label{_game_8h_afbaa7496a3535c60fe7d48364c2084ba}} 
+\index{Game.\+h@{Game.\+h}!reshape\+Window@{reshape\+Window}}
+\index{reshape\+Window@{reshape\+Window}!Game.\+h@{Game.\+h}}
+\subsubsection{\texorpdfstring{reshape\+Window()}{reshapeWindow()}}
+{\footnotesize\ttfamily void reshape\+Window (\begin{DoxyParamCaption}\item[{int}]{width,  }\item[{int}]{height }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parametry}
+{\em width} & \\
+\hline
+{\em height} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_game_8h_aa7ba3645f571434a34b110b82e0d1b56}\label{_game_8h_aa7ba3645f571434a34b110b82e0d1b56}} 
+\index{Game.\+h@{Game.\+h}!setup@{setup}}
+\index{setup@{setup}!Game.\+h@{Game.\+h}}
+\subsubsection{\texorpdfstring{setup()}{setup()}}
+{\footnotesize\ttfamily void setup (\begin{DoxyParamCaption}\item[{int $\ast$}]{argc,  }\item[{char $\ast$$\ast$}]{argv }\end{DoxyParamCaption})}
+
+funkcja inicjująca bibliotekę G\+L\+UT 
+\begin{DoxyParams}{Parametry}
+{\em argc} & \\
+\hline
+{\em argv} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_game_8h_a3c3e683a005eace2dd1e4d551056d9b6}\label{_game_8h_a3c3e683a005eace2dd1e4d551056d9b6}} 
+\index{Game.\+h@{Game.\+h}!timer@{timer}}
+\index{timer@{timer}!Game.\+h@{Game.\+h}}
+\subsubsection{\texorpdfstring{timer()}{timer()}}
+{\footnotesize\ttfamily void timer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Dokumentacja zmiennych}
+\mbox{\Hypertarget{_game_8h_a635554ce5e42a46d9440857a05f0a2be}\label{_game_8h_a635554ce5e42a46d9440857a05f0a2be}} 
+\index{Game.\+h@{Game.\+h}!dir@{dir}}
+\index{dir@{dir}!Game.\+h@{Game.\+h}}
+\subsubsection{\texorpdfstring{dir}{dir}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_game_8h_a224b9163917ac32fc95a60d8c1eec3aa}{Direction}}  dir}
+
+\mbox{\Hypertarget{_game_8h_acd6dabec31df31031412b3a41a48c94e}\label{_game_8h_acd6dabec31df31031412b3a41a48c94e}} 
+\index{Game.\+h@{Game.\+h}!fruits@{fruits}}
+\index{fruits@{fruits}!Game.\+h@{Game.\+h}}
+\subsubsection{\texorpdfstring{fruits}{fruits}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_fruits_list}{Fruits\+List}}$\ast$ fruits}
+
+\mbox{\Hypertarget{_game_8h_ab3342cd76a924204cda81e024fbbfcce}\label{_game_8h_ab3342cd76a924204cda81e024fbbfcce}} 
+\index{Game.\+h@{Game.\+h}!obstacles@{obstacles}}
+\index{obstacles@{obstacles}!Game.\+h@{Game.\+h}}
+\subsubsection{\texorpdfstring{obstacles}{obstacles}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_obstacle_list}{Obstacle\+List}}$\ast$ obstacles}
+
+\mbox{\Hypertarget{_game_8h_a34d0b1072820e65492ab46abcab01a8d}\label{_game_8h_a34d0b1072820e65492ab46abcab01a8d}} 
+\index{Game.\+h@{Game.\+h}!snake@{snake}}
+\index{snake@{snake}!Game.\+h@{Game.\+h}}
+\subsubsection{\texorpdfstring{snake}{snake}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_snake}{Snake}} snake}
+
+\mbox{\Hypertarget{_game_8h_a28529a1c9a8abd411102fb7507a886cb}\label{_game_8h_a28529a1c9a8abd411102fb7507a886cb}} 
+\index{Game.\+h@{Game.\+h}!status@{status}}
+\index{status@{status}!Game.\+h@{Game.\+h}}
+\subsubsection{\texorpdfstring{status}{status}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_game_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}}  status}
+

@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>PP2 Snake: Plik źródłowy inc/Snake.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">PP2 Snake
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano przez Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Szukaj');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_bfccd401955b95cf8c75461437045ac0.html">inc</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">Snake.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_snake_8h.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef SNAKE_SNAKE_H</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define SNAKE_SNAKE_H</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_game_8h.html">Game.h</a>&quot;</span></div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_snake_queue_8h.html">SnakeQueue.h</a>&quot;</span></div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;../inc/FruitsList.h&quot;</span></div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div><div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="struct_snake.html">    9</a></span>&#160;<span class="keyword">struct </span><a class="code" href="struct_snake.html">Snake</a> {</div><div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="struct_snake.html#a922463cae715aed7c5276b753ffa3ba7">   11</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="struct_snake_queue.html">SnakeQueue</a> <a class="code" href="struct_snake.html#a922463cae715aed7c5276b753ffa3ba7">snakeQueue</a>;</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;};</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">struct </span><a class="code" href="struct_snake.html">Snake</a> <a class="code" href="_snake_8h.html#ae6f5177a7a7596cfa6e1e307ef32a2dc">createSnake</a>();</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="_snake_8h.html#aa0f6d2bfdb12b599ec913eb2a0d56389">moveUp</a>(<span class="keyword">struct</span> <a class="code" href="struct_snake.html">Snake</a> *);</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="_snake_8h.html#a5538e81083d5315b0ab22437e021975b">moveDown</a>(<span class="keyword">struct</span> <a class="code" href="struct_snake.html">Snake</a> *);</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="_snake_8h.html#ace874ad0963b23e061babd625b117609">moveRight</a>(<span class="keyword">struct</span> <a class="code" href="struct_snake.html">Snake</a> *);</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="_snake_8h.html#a0c53d5e7811cdb599f81430a7e03d801">moveLeft</a>(<span class="keyword">struct</span> <a class="code" href="struct_snake.html">Snake</a> *);</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">enum</span> <a class="code" href="_game_8h.html#a67a0db04d321a74b7e7fcfd3f1a3f70b">Status</a> <a class="code" href="_snake_8h.html#abe49dff2512fd51aac3758f5740ad2ff">moveSnake</a>(<span class="keyword">struct</span> <a class="code" href="struct_snake.html">Snake</a> *);</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keywordtype">void</span> <a class="code" href="_snake_8h.html#a7487da5e8e9c6e7d9c2170f855a8ed43">eatFruit</a>(<span class="keyword">struct</span> <a class="code" href="struct_snake.html">Snake</a> *, <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y);</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keywordtype">void</span> <a class="code" href="_snake_8h.html#ab7a655aa41ca1f66927867dc451e8728">display</a>(<span class="keyword">struct</span> <a class="code" href="struct_snake.html">Snake</a>);</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor">#endif //SNAKE_SNAKE_H</span></div><div class="ttc" id="_snake_8h_html_ab7a655aa41ca1f66927867dc451e8728"><div class="ttname"><a href="_snake_8h.html#ab7a655aa41ca1f66927867dc451e8728">display</a></div><div class="ttdeci">void display(struct Snake)</div></div>
+<div class="ttc" id="_snake_8h_html_ace874ad0963b23e061babd625b117609"><div class="ttname"><a href="_snake_8h.html#ace874ad0963b23e061babd625b117609">moveRight</a></div><div class="ttdeci">bool moveRight(struct Snake *)</div></div>
+<div class="ttc" id="struct_snake_queue_html"><div class="ttname"><a href="struct_snake_queue.html">SnakeQueue</a></div><div class="ttdef"><b>Definition:</b> SnakeQueue.h:22</div></div>
+<div class="ttc" id="_snake_8h_html_a7487da5e8e9c6e7d9c2170f855a8ed43"><div class="ttname"><a href="_snake_8h.html#a7487da5e8e9c6e7d9c2170f855a8ed43">eatFruit</a></div><div class="ttdeci">void eatFruit(struct Snake *, int x, int y)</div></div>
+<div class="ttc" id="_snake_8h_html_a5538e81083d5315b0ab22437e021975b"><div class="ttname"><a href="_snake_8h.html#a5538e81083d5315b0ab22437e021975b">moveDown</a></div><div class="ttdeci">bool moveDown(struct Snake *)</div></div>
+<div class="ttc" id="_snake_8h_html_abe49dff2512fd51aac3758f5740ad2ff"><div class="ttname"><a href="_snake_8h.html#abe49dff2512fd51aac3758f5740ad2ff">moveSnake</a></div><div class="ttdeci">enum Status moveSnake(struct Snake *)</div></div>
+<div class="ttc" id="_snake_queue_8h_html"><div class="ttname"><a href="_snake_queue_8h.html">SnakeQueue.h</a></div></div>
+<div class="ttc" id="_snake_8h_html_aa0f6d2bfdb12b599ec913eb2a0d56389"><div class="ttname"><a href="_snake_8h.html#aa0f6d2bfdb12b599ec913eb2a0d56389">moveUp</a></div><div class="ttdeci">bool moveUp(struct Snake *)</div></div>
+<div class="ttc" id="_snake_8h_html_a0c53d5e7811cdb599f81430a7e03d801"><div class="ttname"><a href="_snake_8h.html#a0c53d5e7811cdb599f81430a7e03d801">moveLeft</a></div><div class="ttdeci">bool moveLeft(struct Snake *)</div></div>
+<div class="ttc" id="struct_snake_html"><div class="ttname"><a href="struct_snake.html">Snake</a></div><div class="ttdef"><b>Definition:</b> Snake.h:9</div></div>
+<div class="ttc" id="_game_8h_html_a67a0db04d321a74b7e7fcfd3f1a3f70b"><div class="ttname"><a href="_game_8h.html#a67a0db04d321a74b7e7fcfd3f1a3f70b">Status</a></div><div class="ttdeci">Status</div><div class="ttdef"><b>Definition:</b> Game.h:15</div></div>
+<div class="ttc" id="_game_8h_html"><div class="ttname"><a href="_game_8h.html">Game.h</a></div></div>
+<div class="ttc" id="struct_snake_html_a922463cae715aed7c5276b753ffa3ba7"><div class="ttname"><a href="struct_snake.html#a922463cae715aed7c5276b753ffa3ba7">Snake::snakeQueue</a></div><div class="ttdeci">struct SnakeQueue snakeQueue</div><div class="ttdef"><b>Definition:</b> Snake.h:11</div></div>
+<div class="ttc" id="_snake_8h_html_ae6f5177a7a7596cfa6e1e307ef32a2dc"><div class="ttname"><a href="_snake_8h.html#ae6f5177a7a7596cfa6e1e307ef32a2dc">createSnake</a></div><div class="ttdeci">struct Snake createSnake()</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Wygenerowano przez &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

@@ -4,12 +4,16 @@
 #ifndef SNAKE_QUEUE_H
 #define SNAKE_QUEUE_H
 
-/**
- * typ bazowy elementu kolejki węża
- */
+/*! typ bazowy elementu kolejki węża (lista dwukierunkowa) */
 struct SnakeQueueNode {
-    int y, x;
-    struct SnakeQueueNode *next, *prev;
+    /** Współrzędna X */
+    int x;
+    /** Współrzędna Y */
+    int y;
+    /** Wskaźnik na następny element węża */
+    struct SnakeQueueNode *next;
+    /** Wskaźnik na poprzedni element węża */
+    struct SnakeQueueNode *prev;
 };
 
 /**

@@ -1,0 +1,54 @@
+\hypertarget{_point_8h}{}\section{Dokumentacja pliku inc/\+Point.h}
+\label{_point_8h}\index{inc/\+Point.\+h@{inc/\+Point.\+h}}
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+\subsection*{Komponenty}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_point}{Point}}
+\end{DoxyCompactItemize}
+\subsection*{Funkcje}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_point}{Point}} $\ast$ \mbox{\hyperlink{_point_8h_a0d48d0e227ee7f7139db9c816c9482bb}{random\+Point}} ()
+\item 
+void \mbox{\hyperlink{_point_8h_ab9d0986ef5dc0ba98125e3b71bdbf15e}{change\+Point\+Status}} (int x, int y)
+\end{DoxyCompactItemize}
+\subsection*{Zmienne}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{_point_8h_acac6fc1f786ec5e902f79413b34389f9}{points}} \mbox{[}40\mbox{]}\mbox{[}40\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Dokumentacja funkcji}
+\mbox{\Hypertarget{_point_8h_ab9d0986ef5dc0ba98125e3b71bdbf15e}\label{_point_8h_ab9d0986ef5dc0ba98125e3b71bdbf15e}} 
+\index{Point.\+h@{Point.\+h}!change\+Point\+Status@{change\+Point\+Status}}
+\index{change\+Point\+Status@{change\+Point\+Status}!Point.\+h@{Point.\+h}}
+\subsubsection{\texorpdfstring{change\+Point\+Status()}{changePointStatus()}}
+{\footnotesize\ttfamily void change\+Point\+Status (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+funkcja ustawiająca flagę zajętości na polu o zadanych koordynatach 
+\begin{DoxyParams}{Parametry}
+{\em x} & współrzędna X \\
+\hline
+{\em y} & współrzędna Y \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_point_8h_a0d48d0e227ee7f7139db9c816c9482bb}\label{_point_8h_a0d48d0e227ee7f7139db9c816c9482bb}} 
+\index{Point.\+h@{Point.\+h}!random\+Point@{random\+Point}}
+\index{random\+Point@{random\+Point}!Point.\+h@{Point.\+h}}
+\subsubsection{\texorpdfstring{random\+Point()}{randomPoint()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_point}{Point}}$\ast$ random\+Point (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+funkcja zwracająca punkt o losowych koordynatach \begin{DoxyReturn}{Zwraca}
+wskaźnik na wylosowany punkt 
+\end{DoxyReturn}
+
+
+\subsection{Dokumentacja zmiennych}
+\mbox{\Hypertarget{_point_8h_acac6fc1f786ec5e902f79413b34389f9}\label{_point_8h_acac6fc1f786ec5e902f79413b34389f9}} 
+\index{Point.\+h@{Point.\+h}!points@{points}}
+\index{points@{points}!Point.\+h@{Point.\+h}}
+\subsubsection{\texorpdfstring{points}{points}}
+{\footnotesize\ttfamily bool points\mbox{[}40\mbox{]}\mbox{[}40\mbox{]}}
+

@@ -1,0 +1,105 @@
+\hypertarget{_snake_8h}{}\section{Dokumentacja pliku inc/\+Snake.h}
+\label{_snake_8h}\index{inc/\+Snake.\+h@{inc/\+Snake.\+h}}
+{\ttfamily \#include \char`\"{}Game.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Snake\+Queue.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../inc/\+Fruits\+List.\+h\char`\"{}}\newline
+\subsection*{Komponenty}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_snake}{Snake}}
+\end{DoxyCompactItemize}
+\subsection*{Funkcje}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_snake}{Snake}} \mbox{\hyperlink{_snake_8h_ae6f5177a7a7596cfa6e1e307ef32a2dc}{create\+Snake}} ()
+\item 
+bool \mbox{\hyperlink{_snake_8h_aa0f6d2bfdb12b599ec913eb2a0d56389}{move\+Up}} (struct \mbox{\hyperlink{struct_snake}{Snake}} $\ast$)
+\item 
+bool \mbox{\hyperlink{_snake_8h_a5538e81083d5315b0ab22437e021975b}{move\+Down}} (struct \mbox{\hyperlink{struct_snake}{Snake}} $\ast$)
+\item 
+bool \mbox{\hyperlink{_snake_8h_ace874ad0963b23e061babd625b117609}{move\+Right}} (struct \mbox{\hyperlink{struct_snake}{Snake}} $\ast$)
+\item 
+bool \mbox{\hyperlink{_snake_8h_a0c53d5e7811cdb599f81430a7e03d801}{move\+Left}} (struct \mbox{\hyperlink{struct_snake}{Snake}} $\ast$)
+\item 
+enum \mbox{\hyperlink{_game_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{_snake_8h_abe49dff2512fd51aac3758f5740ad2ff}{move\+Snake}} (struct \mbox{\hyperlink{struct_snake}{Snake}} $\ast$)
+\item 
+void \mbox{\hyperlink{_snake_8h_a7487da5e8e9c6e7d9c2170f855a8ed43}{eat\+Fruit}} (struct \mbox{\hyperlink{struct_snake}{Snake}} $\ast$, int x, int y)
+\item 
+void \mbox{\hyperlink{_snake_8h_ab7a655aa41ca1f66927867dc451e8728}{display}} (struct \mbox{\hyperlink{struct_snake}{Snake}})
+\end{DoxyCompactItemize}
+
+
+\subsection{Dokumentacja funkcji}
+\mbox{\Hypertarget{_snake_8h_ae6f5177a7a7596cfa6e1e307ef32a2dc}\label{_snake_8h_ae6f5177a7a7596cfa6e1e307ef32a2dc}} 
+\index{Snake.\+h@{Snake.\+h}!create\+Snake@{create\+Snake}}
+\index{create\+Snake@{create\+Snake}!Snake.\+h@{Snake.\+h}}
+\subsubsection{\texorpdfstring{create\+Snake()}{createSnake()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_snake}{Snake}} create\+Snake (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+funkcja tworząca nową instancję wężą \begin{DoxyReturn}{Zwraca}
+struktura przechowująca typ bazowy węża 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_snake_8h_ab7a655aa41ca1f66927867dc451e8728}\label{_snake_8h_ab7a655aa41ca1f66927867dc451e8728}} 
+\index{Snake.\+h@{Snake.\+h}!display@{display}}
+\index{display@{display}!Snake.\+h@{Snake.\+h}}
+\subsubsection{\texorpdfstring{display()}{display()}}
+{\footnotesize\ttfamily void display (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_snake}{Snake}}}]{ }\end{DoxyParamCaption})}
+
+funkcja wyświetlająca węża \mbox{\Hypertarget{_snake_8h_a7487da5e8e9c6e7d9c2170f855a8ed43}\label{_snake_8h_a7487da5e8e9c6e7d9c2170f855a8ed43}} 
+\index{Snake.\+h@{Snake.\+h}!eat\+Fruit@{eat\+Fruit}}
+\index{eat\+Fruit@{eat\+Fruit}!Snake.\+h@{Snake.\+h}}
+\subsubsection{\texorpdfstring{eat\+Fruit()}{eatFruit()}}
+{\footnotesize\ttfamily void eat\+Fruit (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_snake}{Snake}} $\ast$}]{,  }\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+funkcja usuwająca owoc o podanych koordynatach wykonując efekt \char`\"{}zjadania\char`\"{} czyli dodaje lub odejmuje długość węża 
+\begin{DoxyParams}{Parametry}
+{\em x} & współrzędna X \\
+\hline
+{\em y} & współrzędna Y \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_snake_8h_a5538e81083d5315b0ab22437e021975b}\label{_snake_8h_a5538e81083d5315b0ab22437e021975b}} 
+\index{Snake.\+h@{Snake.\+h}!move\+Down@{move\+Down}}
+\index{move\+Down@{move\+Down}!Snake.\+h@{Snake.\+h}}
+\subsubsection{\texorpdfstring{move\+Down()}{moveDown()}}
+{\footnotesize\ttfamily bool move\+Down (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_snake}{Snake}} $\ast$}]{ }\end{DoxyParamCaption})}
+
+funkcja przemieszczająca węża w dół \begin{DoxyReturn}{Zwraca}
+flaga informująca o tym czy nastąpiła kolizja 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_snake_8h_a0c53d5e7811cdb599f81430a7e03d801}\label{_snake_8h_a0c53d5e7811cdb599f81430a7e03d801}} 
+\index{Snake.\+h@{Snake.\+h}!move\+Left@{move\+Left}}
+\index{move\+Left@{move\+Left}!Snake.\+h@{Snake.\+h}}
+\subsubsection{\texorpdfstring{move\+Left()}{moveLeft()}}
+{\footnotesize\ttfamily bool move\+Left (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_snake}{Snake}} $\ast$}]{ }\end{DoxyParamCaption})}
+
+funkcja przemieszczająca węża w lewo \begin{DoxyReturn}{Zwraca}
+flaga informująca o tym czy nastąpiła kolizja 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_snake_8h_ace874ad0963b23e061babd625b117609}\label{_snake_8h_ace874ad0963b23e061babd625b117609}} 
+\index{Snake.\+h@{Snake.\+h}!move\+Right@{move\+Right}}
+\index{move\+Right@{move\+Right}!Snake.\+h@{Snake.\+h}}
+\subsubsection{\texorpdfstring{move\+Right()}{moveRight()}}
+{\footnotesize\ttfamily bool move\+Right (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_snake}{Snake}} $\ast$}]{ }\end{DoxyParamCaption})}
+
+funkcja przemieszczająca węża w prawo \begin{DoxyReturn}{Zwraca}
+flaga informująca o tym czy nastąpiła kolizja 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_snake_8h_abe49dff2512fd51aac3758f5740ad2ff}\label{_snake_8h_abe49dff2512fd51aac3758f5740ad2ff}} 
+\index{Snake.\+h@{Snake.\+h}!move\+Snake@{move\+Snake}}
+\index{move\+Snake@{move\+Snake}!Snake.\+h@{Snake.\+h}}
+\subsubsection{\texorpdfstring{move\+Snake()}{moveSnake()}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_game_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} move\+Snake (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_snake}{Snake}} $\ast$}]{ }\end{DoxyParamCaption})}
+
+funkcja określająca czy dany ruch się powiódł \begin{DoxyReturn}{Zwraca}
+wartość wyliczenia informująca czy dany ruch zakończył się sukcesem 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_snake_8h_aa0f6d2bfdb12b599ec913eb2a0d56389}\label{_snake_8h_aa0f6d2bfdb12b599ec913eb2a0d56389}} 
+\index{Snake.\+h@{Snake.\+h}!move\+Up@{move\+Up}}
+\index{move\+Up@{move\+Up}!Snake.\+h@{Snake.\+h}}
+\subsubsection{\texorpdfstring{move\+Up()}{moveUp()}}
+{\footnotesize\ttfamily bool move\+Up (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_snake}{Snake}} $\ast$}]{ }\end{DoxyParamCaption})}
+
+funkcja przemieszczająca węża w górę \begin{DoxyReturn}{Zwraca}
+flaga informująca o tym czy nastąpiła kolizja 
+\end{DoxyReturn}
